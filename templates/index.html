@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>API Docs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center my-3">API Docs by Salman</h1>
+        <ol>
+            <li>
+                <p>To get all active sports events go to <a target="_blank"
+                        href="{{base_URL}}/active_events">{{base_URL}}/active_events</a></p>
+                <p>This end point will return a list of all active events/leagues, each containing a <strong style="font-style: italic;">key</strong>, called event_key. You will use this event key to get data about a specific event/league. For more info read next section</p>
+                <p>You can also filter results by passing URL parameter <strong
+                        style="font-style: italic;">group</strong>. It filter outs results for only specific sport
+                    group.</p>
+                <p>Valid sports groups are
+                    <span class="validSpan">
+                        {% for validGroup in oddsAPI.valid_sport_groups %}
+                        <strong style="font-style: italic;">{{validGroup}}</strong>
+                        {% endfor %}
+                    </span>
+                </p>
+                <h4>Examples</h4>
+                <div class="exampleDiv">
+                    <a href="{{base_URL}}/active_events?group=Cricket"
+                        target="_blank">{{base_URL}}/active_events?group=Cricket</a>
+                </div>
+            </li>
+
+            <li>
+                <p>To get data of a specific event go to <a target="_blank" href="{{base_URL}}/data">{{base_URL}}/data</a></p>
+                <p>URL parameter are <strong style="font-style: italic;">event_key</strong> and <strong
+                        style="font-style: italic;">region</strong></p>
+                <p><strong style="font-style: italic;">event_key</strong> is a required parameter but <strong
+                        style="font-style: italic;">region</strong> is optional. If you don't pass <strong
+                        style="font-style: italic;">region</strong> parameter in URL, the default <strong
+                        style="font-style: italic;">region</strong> is <strong style="font-style: italic;">uk</strong>
+                </p>
+                <p>Valid regions are
+                    <span class="validSpan">
+                        {% for validRegion in oddsAPI.valid_regions %}
+                        <strong style="font-style: italic;">{{validRegion}}</strong>
+                        {% endfor %}
+                    </span>
+                </p>
+                <h4>Examples</h4>
+                <div class="exampleDiv">
+                    <a href="{{base_URL}}/data?event_key=cricket_big_bash"
+                        target="_blank">{{base_URL}}/data?event_key=cricket_big_bash</a>
+                    <a href="{{base_URL}}/data?event_key=cricket_big_bash&region=us"
+                        target="_blank">{{base_URL}}/data?event_key=cricket_big_bash&amp;region=us</a>
+                </div>
+            </li>
+        </ol>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+<!-- <script src="https://kit.fontawesome.com/7d3f73a100.js" crossorigin="anonymous"></script> -->
+
+</html>

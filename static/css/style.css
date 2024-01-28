@@ -1,0 +1,18 @@
+a{
+    text-decoration: none;
+}
+ol{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+li{
+    padding: 15px;
+    background-color: whitesmoke;
+}
+.exampleDiv{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
