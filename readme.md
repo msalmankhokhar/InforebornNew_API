@@ -1,6 +1,6 @@
-# InforebornNew RESTful API Developed by Salman Khokhar
+# InfoRebornNew Website RESTful API by Salman Khokhar
 
-This project provides a RESTful API for a betting website InforebornNew, offering information about in-season sports events and their respective odds/rates. The API utilizes Python Flask, a lightweight WSGI web application framework, to handle HTTP requests and responses.
+This project provides a RESTful API for a InfoRebornNew website, offering information about in-season sports events and their respective odds/rates. The API utilizes Flask and external APIs to handle HTTP requests and responses.
 
 ## Features
 
@@ -12,7 +12,7 @@ This project provides a RESTful API for a betting website InforebornNew, offerin
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/betting-website-api.git
+git clone https://github.com/msalmankhokhar/betting-website-api.git
 cd betting-website-api
 ```
 
@@ -29,7 +29,7 @@ pip install -r requirements.txt
 4. Run the application:
 
 ```bash
-python app.py
+python3 wsgi.py
 ```
 
 ## API Endpoints
@@ -64,7 +64,7 @@ python app.py
 #### Request
 
 ```http
-GET /events/football
+GET /events/Soccer
 ```
 
 #### Response
@@ -74,16 +74,12 @@ GET /events/football
   "success": true,
   "response": [
     {
-      "event_id": "12345",
-      "event_name": "Manchester United vs. Liverpool",
-      "start_time": "2024-02-01T18:00:00Z",
-      "venue": "Old Trafford"
+      "event_key": "1",
+      "title": "Premier League"
     },
     {
-      "event_id": "67890",
-      "event_name": "Barcelona vs. Real Madrid",
-      "start_time": "2024-02-02T20:00:00Z",
-      "venue": "Camp Nou"
+      "event_key": "2",
+      "title": "La Liga"
     }
   ]
 }
@@ -94,7 +90,7 @@ GET /events/football
 #### Request
 
 ```http
-GET /odds/football/12345
+GET /odds/Soccer/1
 ```
 
 #### Response
@@ -103,14 +99,14 @@ GET /odds/football/12345
 {
   "success": true,
   "response": {
-    "event_id": "12345",
-    "event_name": "Manchester United vs. Liverpool",
-    "start_time": "2024-02-01T18:00:00Z",
-    "venue": "Old Trafford",
-    "odds": {
-      "home_team": 2.5,
-      "away_team": 1.8,
-      "draw": 2.2
+    "data from BetsAPI": {
+      "eventId": "1",
+      "eventName": "Premier League",
+      "odds": {
+        "home_team": 2.5,
+        "away_team": 1.8,
+        "draw": 2.2
+      }
     }
   }
 }
