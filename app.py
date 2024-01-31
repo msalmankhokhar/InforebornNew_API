@@ -6,6 +6,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'salmankhokhar'
 app_settings = json.load(open("settings.json", "r"))
 external_URL = app_settings.get("external_URL")
+GithubReadmelink = app_settings.get("Github Readme link")
 oddsAPI = OddsAPI()
 betsAPI = BetsAPI()
 
@@ -22,10 +23,17 @@ def makeErrorJSON(msg):
 @app.route("/", methods=["GET"])
 def home():
     return redirect('/docs')
+    # return redirect(GithubReadmelink)
 
 @app.route('/docs', methods=['GET'])
 def docs():
-    return render_template("index.html", base_URL=external_URL, oddsAPI=oddsAPI)
+    return render_template("index.html", base_URL=external_URL, oddsAPI=oddsAPI, GithubReadmelink=GithubReadmelink)
+
+@app.route('/get-readme', methods=['GET'])
+def getReadme():
+    with open('readme.md', 'rt') as file:
+        readmeText = file.read()
+    return readmeText
 
 @app.route("/events/<string:sport_name>", methods=["GET"])
 def events(sport_name):

@@ -1,4 +1,4 @@
-# InfoRebornNew Website RESTful API by Salman Khokhar
+# InfoRebornNew RESTful API by Salman Khokhar
 
 This project provides a RESTful API for a InfoRebornNew website, offering information about in-season sports events and their respective odds/rates. The API utilizes Flask and external APIs to handle HTTP requests and responses.
 
@@ -128,5 +128,3 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
-
-Feel free to customize this README according to your project's specific requirements and guidelines.
