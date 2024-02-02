@@ -4,7 +4,15 @@ from util import OddsAPI, BetsAPI, keysDict, valid_sport_names, listToText, spor
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'salmankhokhar'
-app_settings = json.load(open("settings.json", "r"))
+
+try:
+    with open("settings.json", "rt") as file:
+        app_settings = json.load(file)
+except Exception as error:
+    print(error)
+    with open("/home/salman138/mysite/settings.json", "rt") as file:
+        app_settings = json.load(file)
+
 external_URL = app_settings.get("external_URL")
 GithubReadmelink = app_settings.get("Github Readme link")
 oddsAPI = OddsAPI()
