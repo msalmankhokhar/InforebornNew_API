@@ -39,8 +39,12 @@ def docs():
 
 @app.route('/get-readme', methods=['GET'])
 def getReadme():
-    with open('readme.md', 'rt') as file:
-        readmeText = file.read()
+    try:
+        with open('readme.md', 'rt') as file:
+            readmeText = file.read()
+    except Exception as error:
+        with open('/home/salman138/mysite/readme.md', 'rt') as file:
+            readmeText = file.read()
     return readmeText
 
 @app.route("/events/<string:sport_name>", methods=["GET"])
