@@ -1,6 +1,7 @@
 import requests
 
-valid_sport_names = ["Cricket", "Tennis", "Soccer", "Horse Racing", "Greyhounds", "all"]
+valid_sport_params = ["Cricket", "Tennis", "Soccer", "Horse Racing", "Greyhounds", "all"]
+valid_sport_names = ["Cricket", "Tennis", "Soccer", "Horse Racing", "Greyhounds"]
 sports_from_ODDSAPI = ["Tennis"]
 sports_from_BETSAPI = ["Cricket","Soccer", "Horse Racing", "Greyhounds"]
 
