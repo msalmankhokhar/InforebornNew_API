@@ -60,8 +60,7 @@ class OddsAPI():
        
 class BetsAPI():
     def __init__(self) -> None:
-        # self.API_KEY = '182403-BLXmyARg5xtSAX'
-        self.API_KEY = '182728-E6TrTksYD55ZpZ'
+        self.API_KEY = '183077-XEMDqxF5T11u0s'
         self.name = "BetsAPI"
         self.SportsID_Dict = {
             'Cricket' : '3',
