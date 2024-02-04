@@ -90,7 +90,7 @@ def data(sport_name, event_key):
             return makeErrorJSON("BetsAPI is not working. May be the trial or suscription is over. Please resubscribe or buy the trial again.")
     elif event_key[0].isalpha():
         if event_key in keysInOddsAPI:
-            return makeResponseJSON(betsAPI.getData(event_key=event_key))
+            return makeResponseJSON(oddsAPI.getData(event_key=event_key))
         else:
             return makeErrorJSON(f"Invalid event key. Get a velid event key from here {external_URL}/events/{sport_name}")
     else:

@@ -70,7 +70,7 @@ class BetsAPI():
             'Greyhounds' : '4'
         }
     def isWorking(self):
-        response = requests.get("https://api.b365api.com/v3/events/inplay?sport_id=3&token=182403-BLXmyARg5xtSAX")    
+        response = requests.get(f"https://api.b365api.com/v3/events/inplay?sport_id=3&token={self.API_KEY}")    
         if response.status_code == 200:
             return True
         else:
@@ -81,6 +81,7 @@ class BetsAPI():
         if response.get("success") == 1:
             customResponse = [ { "event_key" : result.get("league").get("id"), "title" : result.get("league").get("name") } for result in response.get("results") ]
             return { 
+                "success" : True,
                 "source" : self.name,
                 "sport name" : sport_name,
                 "active events" : customResponse
@@ -92,13 +93,14 @@ class BetsAPI():
                 "active events" : response
             }
     def getData(self, event_key):
-        api_response = requests.get(f'https://api.b365api.com/v2/event/odds/summary?event_id={event_key}&token={self.API_KEY}').json()
+        # api_response = requests.get(f'https://api.b365api.com/v2/event/odds/summary?event_id={event_key}&token={self.API_KEY}').json()
+        api_response = requests.get(f'https://api.b365api.com/v2/event/odds?event_id={event_key}&token={self.API_KEY}').json()
         return { 
             f"data from {self.name}" : api_response
         }
     def getAllEventsKeys(self, sport_name):
         activeEvents = self.getActiveEvents(sport_name)
-        if activeEvents.get("success") == 1:
+        if activeEvents.get("success") == True:
             eventList = activeEvents.get("active events")
             return { 
                 "source" : self.name,
