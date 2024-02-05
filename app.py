@@ -40,10 +40,11 @@ def docs():
 @app.route('/get-readme', methods=['GET'])
 def getReadme():
     try:
-        with open('readme.md', 'rt') as file:
+        with open('/home/salman138/mysite/readme.md', 'rt') as file:
             readmeText = file.read()
     except Exception as error:
-        with open('/home/salman138/mysite/readme.md', 'rt') as file:
+        print(error)
+        with open('readme.md', 'rt') as file:
             readmeText = file.read()
     return readmeText
 
