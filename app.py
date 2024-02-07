@@ -6,11 +6,11 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'salmankhokhar'
 
 try:
-    with open("settings.json", "rt") as file:
+    with open("/home/salman138/mysite/settings.json", "rt") as file:
         app_settings = json.load(file)
 except Exception as error:
     print(error)
-    with open("/home/salman138/mysite/settings.json", "rt") as file:
+    with open("./settings.json", "rt") as file:
         app_settings = json.load(file)
 
 external_URL = app_settings.get("external_URL")
@@ -44,7 +44,7 @@ def getReadme():
             readmeText = file.read()
     except Exception as error:
         print(error)
-        with open('readme.md', 'rt') as file:
+        with open('./readme.md', 'rt') as file:
             readmeText = file.read()
     return readmeText
 
@@ -81,18 +81,24 @@ def events(sport_name):
 def data(sport_name, event_key):
     keysInOddsAPI = oddsAPI.getAllEventsKeys(sport_name).get("all keys")
     keysInBetsAPI = betsAPI.getAllEventsKeys(sport_name).get("all keys")
+    print(keysInOddsAPI)
+    print(keysInBetsAPI)
     if event_key.isdigit():
+        print("key is digit")
         if betsAPI.isWorking():
             if event_key in keysInBetsAPI:
-                return makeResponseJSON(betsAPI.getData(event_key=event_key))
+                return makeResponseJSON(betsAPI.getData(event_key=event_key, sport_name=sport_name))
             else:
-                return makeErrorJSON(f"Invalid event key. Get a velid event key from here {external_URL}/events/{sport_name}")
+                if len(keysInBetsAPI) == 0:
+                    return makeErrorJSON(f"Currently no events are being recieved from betsapi. Check all events of {sport_name} returned by OddsAPI and BetsAPI at {request.host_url}events/{sport_name}")
+                else:
+                    return makeErrorJSON(f"Invalid event key. Get a valid event key from here {request.host}events/{sport_name}")
         else:
             return makeErrorJSON("BetsAPI is not working. May be the trial or suscription is over. Please resubscribe or buy the trial again.")
     elif event_key[0].isalpha():
         if event_key in keysInOddsAPI:
-            return makeResponseJSON(oddsAPI.getData(event_key=event_key))
+            return makeResponseJSON(oddsAPI.getData(event_key=event_key, sport_name=sport_name))
         else:
-            return makeErrorJSON(f"Invalid event key. Get a velid event key from here {external_URL}/events/{sport_name}")
+            return makeErrorJSON(f"Invalid event key. Get a valid event key from here {external_URL}/events/{sport_name}")
     else:
         return makeErrorJSON("Invalid event key")
