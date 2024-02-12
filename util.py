@@ -70,10 +70,17 @@ class OddsAPI():
             "sport name" : sport_name,
             "all keys" : [ event.get("active events")[0].get("sport_key") for event in eventList ]
         }
+    def getScores(self, sport_name, event_key):
+        response = requests.get(f'https://api.the-odds-api.com/v4/sports/{event_key}/scores/?apiKey={self.API_KEY}').json()
+        return { 
+            "source" : self.name,
+            "sport name" : sport_name,
+            "scores" : response
+        }
        
 class BetsAPI():
     def __init__(self) -> None:
-        self.API_KEY = '183417-CLoHWYawPQWhmA'
+        self.API_KEY = '174934-G2BfmL0xkgBnUk'
         self.name = "BetsAPI"
         self.SportsID_Dict = {
             'Cricket' : '3',
@@ -142,3 +149,21 @@ class BetsAPI():
     def getEventName(self, event_key):
         response = requests.get(f'https://api.b365api.com/v1/bet365/event?token={self.API_KEY}&FI={event_key}').json()
         return response.get('results')[0][0].get('CT')
+    
+    def getScores(self, sport_name, event_key):
+        sport_id = self.SportsID_Dict.get(sport_name)
+        response = requests.get(f'https://api.b365api.com/v1/bet365/result?token={self.API_KEY}&event_id={sport_id}').json()
+        return { 
+            "source" : self.name,
+            "sport name" : sport_name,
+            "scores" : response
+        }
+    
+    def getUpcommingEvents(self, sport_name):
+        sport_id = self.SportsID_Dict.get(sport_name)
+        response = requests.get(f'https://api.b365api.com/v1/bet365/upcoming?sport_id={sport_id}&token={self.API_KEY}').json()
+        return { 
+            "source" : self.name,
+            "sport name" : sport_name,
+            "upcomming events" : response
+        }

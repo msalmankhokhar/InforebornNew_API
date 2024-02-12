@@ -102,3 +102,43 @@ def data(sport_name, event_key):
             return makeErrorJSON(f"Invalid event key. Get a valid event key from here {external_URL}/events/{sport_name}")
     else:
         return makeErrorJSON("Invalid event key")
+    
+@app.route('/scores/<string:sport_name>/<string:event_key>', methods=["GET"])
+def scores(sport_name, event_key):
+    keysInOddsAPI = oddsAPI.getAllEventsKeys(sport_name).get("all keys")
+    keysInBetsAPI = betsAPI.getAllEventsKeys(sport_name).get("all keys")
+    if event_key.isdigit():
+        print("key is digit")
+        if betsAPI.isWorking():
+            if event_key in keysInBetsAPI:
+                return makeResponseJSON(betsAPI.getScores(sport_name=sport_name, event_key=event_key))
+            else:
+                if len(keysInBetsAPI) == 0:
+                    return makeErrorJSON(f"Currently no events are being recieved from betsapi. Check all events of {sport_name} returned by OddsAPI and BetsAPI at {request.host_url}events/{sport_name}")
+                else:
+                    return makeErrorJSON(f"Invalid event key. Get a valid event key from here {request.host}events/{sport_name}")
+        else:
+            return makeErrorJSON("BetsAPI is not working. May be the trial or suscription is over. Please resubscribe or buy the trial again.")
+    elif event_key[0].isalpha():
+        if event_key in keysInOddsAPI:
+            return makeResponseJSON(oddsAPI.getScores(sport_name=sport_name, event_key=event_key))
+        else:
+            return makeErrorJSON(f"Invalid event key. Get a valid event key from here {external_URL}/events/{sport_name}")
+    else:
+        return makeErrorJSON("Invalid event key")
+    
+@app.route('/upcomming/<string:sport_name>', methods=["GET"])
+def upcomming_events(sport_name):
+    if sport_name in valid_sport_params:
+        if sport_name == "all":
+            finalResponse = []
+            for sportname in valid_sport_names:
+                upcomming_events = { sportname : [ betsAPI.getUpcommingEvents(sportname) ] }
+                finalResponse.append(upcomming_events)
+            return makeResponseJSON(finalResponse)
+        else:
+            finalResponse = []
+            upcomming_events = { f"upcomming events of {sport_name}" : [ betsAPI.getUpcommingEvents(sport_name) ] }
+            return makeResponseJSON(upcomming_events)
+    else:
+        return makeErrorJSON(f"Invalid sport name. Valid Sports names are {listToText(valid_sport_params)}. 'all' means all sports")
