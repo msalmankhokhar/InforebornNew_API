@@ -1,11 +1,13 @@
 # InfoRebornNew RESTful API by Salman Khokhar
 
-This project provides a RESTful API for a InfoRebornNew website, offering information about in-season sports events and their respective odds/rates. The API utilizes Flask and external APIs to handle HTTP requests and responses.
+This project provides a RESTful API for an InfoRebornNew website, offering information about in-season sports events and their respective odds/rates. The API utilizes Flask and external APIs to handle HTTP requests and responses.
 
 ## Features
 
 - Retrieve information about active sports events
 - Fetch odds/rates for specific sports events
+- Get event scores
+- Retrieve upcoming events
 
 ## Setup
 
@@ -22,14 +24,15 @@ cd betting-website-api
 pip install -r requirements.txt
 ```
 
-3. Set up configuration:
+3. Configure the application:
 
-   - Modify `settings.json` to include necessary configurations, such as external URLs and API keys.
+   - Ensure you have a `settings.json` file in the root directory of the project.
+   - Update the `settings.json` file with necessary configurations, such as external URLs and API keys.
 
 4. Run the application:
 
 ```bash
-python3 wsgi.py
+python3 app.py
 ```
 
 ## API Endpoints
@@ -57,6 +60,29 @@ python3 wsgi.py
   - Success: Returns a JSON object containing event data.
   - Error: Returns an error message if the event key is invalid.
 
+### 3. Get Event Scores
+
+- **URL:** `/scores/<string:sport_name>/<string:event_key>`
+- **Method:** `GET`
+- **Description:** Retrieve scores for a specific event.
+- **Parameters:**
+  - `sport_name` (string): Name of the sport.
+  - `event_key` (string): Unique identifier for the event.
+- **Response:**
+  - Success: Returns a JSON object containing event scores.
+  - Error: Returns an error message if the event key is invalid or scores are not available.
+
+### 4. Get Upcoming Events
+
+- **URL:** `/upcoming/<string:sport_name>`
+- **Method:** `GET`
+- **Description:** Retrieve upcoming events for a specific sport.
+- **Parameters:**
+  - `sport_name` (string): Name of the sport. Use 'all' to retrieve upcoming events for all sports.
+- **Response:**
+  - Success: Returns a JSON object containing upcoming events.
+  - Error: Returns an error message if the sport name is invalid.
+
 ## Usage Examples
 
 ### 1. Retrieve Active Events
@@ -75,11 +101,17 @@ GET /events/Soccer
   "response": [
     {
       "event_key": "1",
-      "title": "Premier League"
+      "event title": "Premier League",
+      "description": "Soccer League",
+      "home": "Manchester United",
+      "away": "Liverpool"
     },
     {
       "event_key": "2",
-      "title": "La Liga"
+      "event title": "La Liga",
+      "description": "Football League",
+      "home": "Real Madrid",
+      "away": "Barcelona"
     }
   ]
 }
@@ -99,6 +131,7 @@ GET /odds/Soccer/1
 {
   "success": true,
   "response": {
+    "sport name": "Soccer",
     "data from BetsAPI": {
       "eventId": "1",
       "eventName": "Premier League",
@@ -109,6 +142,64 @@ GET /odds/Soccer/1
       }
     }
   }
+}
+```
+
+### 3. Retrieve Event Scores
+
+#### Request
+
+```http
+GET /scores/Soccer/1
+```
+
+#### Response
+
+```json
+{
+  "success": true,
+  "response": {
+    "source": "BetsAPI",
+    "sport name": "Soccer",
+    "scores": {
+      "home_team": 2,
+      "away_team": 1
+    }
+  }
+}
+```
+
+### 4. Retrieve Upcoming Events
+
+#### Request
+
+```http
+GET /upcoming/Cricket
+```
+
+#### Response
+
+```json
+{
+  "success": true,
+  "response": [
+    {
+      "upcoming events of Cricket": [
+        {
+          "event_key": "1",
+          "event title": "T20 World Cup",
+          "home": "India",
+          "away": "Australia"
+        },
+        {
+          "event_key": "2",
+          "event title": "Ashes Series",
+          "home": "England",
+          "away": "Australia"
+        }
+      ]
+    }
+  ]
 }
 ```
 
@@ -127,4 +218,8 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
----
+--- 
+
+This README.md provides an overview of the API, including setup instructions, available endpoints, usage examples, contribution guidelines, and licensing information.
+
+If you have any questions or encounter any issues, feel free to contact [Salman Khokhar](https://github.com/msalmankhokhar).
