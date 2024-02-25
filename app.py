@@ -75,8 +75,7 @@ def events(sport_name):
             return makeResponseJSON(finalResponse)
         elif use_both_APIs:
             finalResponse = [ oddsAPI.getActiveEvents(sport_name), betsAPI.getActiveEvents(sport_name) ]
-            # return makeResponseJSON(finalResponse)
-            return makeResponseJSON()
+            return makeResponseJSON(finalResponse)
         else:
             if sport_name in sports_from_BETSAPI:
                 finalResponse = betsAPI.getActiveEvents(sport_name)

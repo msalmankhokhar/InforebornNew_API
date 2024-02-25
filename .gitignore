@@ -3,3 +3,5 @@
 /poetry.lock
 /pyproject.toml
 /.idea
+/solver.py
+./rough.py
