@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request, redirect, jsonify
+from flask import Flask, render_template, request, redirect, jsonify, make_response, url_for
 import json
+from urllib.parse import urljoin
 from util import OddsAPI, BetsAPI, keysDict, valid_sport_params, valid_sport_names, listToText, sports_from_ODDSAPI, sports_from_BETSAPI
 
 app = Flask(__name__)
@@ -21,17 +22,25 @@ betsAPI = BetsAPI()
 use_both_APIs = True
 
 def makeResponseJSON(content):
-    return jsonify({
+    return {
         "success" : True,
         "response" : content
-        })
-def makeErrorJSON(msg):
-    return jsonify({ "success" : False, "msg" : msg })
+        }
+
+class ErrorJSON():
+    def __init__(self, msg, status=400) -> None:
+        self.msg = msg
+        self.status = status
+        self.json = { "success" : False, "msg" : msg }
+        self.response = (self.json, status)
+    def add(self, content):
+        self.json.update(content)
+    # def __call__(self):
+    #     return self.response
 
 @app.route("/", methods=["GET"])
 def home():
     return redirect('/docs')
-    # return redirect(GithubReadmelink)
 
 @app.route('/docs', methods=['GET'])
 def docs():
@@ -66,7 +75,8 @@ def events(sport_name):
             return makeResponseJSON(finalResponse)
         elif use_both_APIs:
             finalResponse = [ oddsAPI.getActiveEvents(sport_name), betsAPI.getActiveEvents(sport_name) ]
-            return makeResponseJSON(finalResponse)
+            # return makeResponseJSON(finalResponse)
+            return makeResponseJSON()
         else:
             if sport_name in sports_from_BETSAPI:
                 finalResponse = betsAPI.getActiveEvents(sport_name)
@@ -75,57 +85,71 @@ def events(sport_name):
                 finalResponse = oddsAPI.getActiveEvents(sport_name)
                 return makeResponseJSON(finalResponse)
     else:
-        return makeErrorJSON(f"Invalid sport name. Valid Sports names are {listToText(valid_sport_params)}. 'all' means all sports")
+        return ErrorJSON(f"Invalid sport name. Valid Sports names are {listToText(valid_sport_params)}. 'all' means all sports").response
 
 @app.route("/odds/<string:sport_name>/<string:event_key>", methods=["GET"])
 def data(sport_name, event_key):
-    keysInOddsAPI = oddsAPI.getAllEventsKeys(sport_name).get("all keys")
-    keysInBetsAPI = betsAPI.getAllEventsKeys(sport_name).get("all keys")
-    print(keysInOddsAPI)
-    print(keysInBetsAPI)
-    if event_key.isdigit():
-        print("key is digit")
-        if betsAPI.isWorking():
-            if event_key in keysInBetsAPI:
-                return makeResponseJSON(betsAPI.getData(event_key=event_key, sport_name=sport_name))
-            else:
-                if len(keysInBetsAPI) == 0:
-                    return makeErrorJSON(f"Currently no events are being recieved from betsapi. Check all events of {sport_name} returned by OddsAPI and BetsAPI at {request.host_url}events/{sport_name}")
+    if sport_name in valid_sport_params:
+        keysInOddsAPI = oddsAPI.getAllEventsKeys(sport_name).get("all keys")
+        keysInBetsAPI = betsAPI.getAllEventsKeys(sport_name).get("all keys")
+        print(keysInOddsAPI)
+        print(keysInBetsAPI)
+        if event_key.isdigit():
+            print("key is digit")
+            if betsAPI.isWorking():
+                if event_key in keysInBetsAPI:
+                    return makeResponseJSON(betsAPI.getData(event_key=event_key, sport_name=sport_name))
                 else:
-                    return makeErrorJSON(f"Invalid event key. Get a valid event key from here {request.host}events/{sport_name}")
+                    if len(keysInBetsAPI) == 0:
+                        return ErrorJSON(f"Currently no events are being recieved from betsapi. Check all events of {sport_name} returned by OddsAPI and BetsAPI at {request.host_url}events/{sport_name}").response
+                    else:
+                        return ErrorJSON(f"Invalid event key. Get a valid event key from here {request.host}events/{sport_name}").response
+            else:
+                return ErrorJSON("BetsAPI is not working. May be the trial or suscription is over. Please resubscribe or buy the trial again.").response
+        elif event_key[0].isalpha():
+            if event_key in keysInOddsAPI:
+                return makeResponseJSON(oddsAPI.getData(event_key=event_key, sport_name=sport_name))
+            else:
+                response = ErrorJSON(f"Invalid event key. Get a valid event key from here {request.host_url}events/{sport_name}, or you can use any of the given valid event keys")
+                response.add({ "valid event keys" : oddsAPI.getAllEventsKeys(sport_name).get("all keys") + betsAPI.getAllEventsKeys(sport_name).get("all keys") })
+                return response.response
         else:
-            return makeErrorJSON("BetsAPI is not working. May be the trial or suscription is over. Please resubscribe or buy the trial again.")
-    elif event_key[0].isalpha():
-        if event_key in keysInOddsAPI:
-            return makeResponseJSON(oddsAPI.getData(event_key=event_key, sport_name=sport_name))
-        else:
-            return makeErrorJSON(f"Invalid event key. Get a valid event key from here {external_URL}/events/{sport_name}")
+            return ErrorJSON("Invalid event key").response
     else:
-        return makeErrorJSON("Invalid event key")
+        return ErrorJSON(f"Invalid sport name. Valid Sports names are {listToText(valid_sport_params)}. 'all' means all sports").response
     
 @app.route('/scores/<string:sport_name>/<string:event_key>', methods=["GET"])
 def scores(sport_name, event_key):
-    keysInOddsAPI = oddsAPI.getAllEventsKeys(sport_name).get("all keys")
-    keysInBetsAPI = betsAPI.getAllEventsKeys(sport_name).get("all keys")
-    if event_key.isdigit():
-        print("key is digit")
-        if betsAPI.isWorking():
-            if event_key in keysInBetsAPI:
-                return makeResponseJSON(betsAPI.getScores(sport_name=sport_name, event_key=event_key))
-            else:
-                if len(keysInBetsAPI) == 0:
-                    return makeErrorJSON(f"Currently no events are being recieved from betsapi. Check all events of {sport_name} returned by OddsAPI and BetsAPI at {request.host_url}events/{sport_name}")
+    if sport_name in valid_sport_params:
+        keysInOddsAPI = oddsAPI.getAllEventsKeys(sport_name).get("all keys")
+        keysInBetsAPI = betsAPI.getAllEventsKeys(sport_name).get("all keys")
+        if event_key.isdigit():
+            print("key is digit")
+            if betsAPI.isWorking():
+                if event_key in keysInBetsAPI:
+                    return makeResponseJSON(betsAPI.getScores(sport_name=sport_name, event_key=event_key))
                 else:
-                    return makeErrorJSON(f"Invalid event key. Get a valid event key from here {request.host}events/{sport_name}")
+                    if len(keysInBetsAPI) == 0:
+                        return ErrorJSON(f"Currently no events are being recieved from betsapi. Check all events of {sport_name} returned by OddsAPI and BetsAPI at {request.host_url}events/{sport_name}").response
+                    else:
+                        response = ErrorJSON(f"Invalid event key. Get a valid event key from here {request.host_url}events/{sport_name}, or you can use any of the given valid event keys")
+                        response.add({ "valid event keys" : oddsAPI.getAllEventsKeys(sport_name).get("all keys") + betsAPI.getAllEventsKeys(sport_name).get("all keys") })
+                        return response.response
+            else:
+                return ErrorJSON("BetsAPI is not working. May be the trial or suscription is over. Please resubscribe or buy the trial again.")
+        elif event_key[0].isalpha():
+            if event_key in keysInOddsAPI:
+                return makeResponseJSON(oddsAPI.getScores(sport_name=sport_name, event_key=event_key))
+            else:
+                response = ErrorJSON(f"Invalid event key. Get a valid event key from here {request.host_url}events/{sport_name}, or you can use any of the given valid event keys")
+                response.add({ "valid event keys" : oddsAPI.getAllEventsKeys(sport_name).get("all keys") + betsAPI.getAllEventsKeys(sport_name).get("all keys") })
+                return response.response
         else:
-            return makeErrorJSON("BetsAPI is not working. May be the trial or suscription is over. Please resubscribe or buy the trial again.")
-    elif event_key[0].isalpha():
-        if event_key in keysInOddsAPI:
-            return makeResponseJSON(oddsAPI.getScores(sport_name=sport_name, event_key=event_key))
-        else:
-            return makeErrorJSON(f"Invalid event key. Get a valid event key from here {external_URL}/events/{sport_name}")
+            response = ErrorJSON(f"Invalid event key. Get a valid event key from here {request.host_url}events/{sport_name}, or you can use any of the given valid event keys")
+            response.add({ "valid event keys" : oddsAPI.getAllEventsKeys(sport_name).get("all keys") + betsAPI.getAllEventsKeys(sport_name).get("all keys") })
+            return response.response
     else:
-        return makeErrorJSON("Invalid event key")
+        return ErrorJSON(f"Invalid sport name. Valid Sports names are {listToText(valid_sport_params)}. 'all' means all sports").response
     
 @app.route('/upcomming/<string:sport_name>', methods=["GET"])
 def upcomming_events(sport_name):
@@ -141,4 +165,20 @@ def upcomming_events(sport_name):
             upcomming_events = { f"upcomming events of {sport_name}" : [ betsAPI.getUpcommingEvents(sport_name) ] }
             return makeResponseJSON(upcomming_events)
     else:
-        return makeErrorJSON(f"Invalid sport name. Valid Sports names are {listToText(valid_sport_params)}. 'all' means all sports")
+        return ErrorJSON(f"Invalid sport name. Valid Sports names are {listToText(valid_sport_params)}. 'all' means all sports").response
+
+@app.errorhandler(404)
+def not_found(e):
+    return ErrorJSON(f"Endpoint not found(404), Please read API documentation at { urljoin( request.host_url, url_for('docs') ) }", 404).response
+
+@app.errorhandler(500)
+def internal_server_error(e):
+    errorJson = ErrorJSON(str(e), 500)
+    return errorJson.response
+
+# app run settings
+app_port = 81
+debug = False
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=app_port, debug=debug)

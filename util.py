@@ -64,12 +64,13 @@ class OddsAPI():
             f"data from {self.name}" : data
         }
     def getAllEventsKeys(self, sport_name):
-        eventList = self.getActiveEvents(sport_name).get("active events")
+        activeEvents = self.getActiveEvents(sport_name)
+        all_keys = [event['sport_key'] for sport in activeEvents['active events'] for event in sport['active events']]
         return { 
-            "source" : self.name,
-            "sport name" : sport_name,
-            "all keys" : [ event.get("active events")[0].get("sport_key") for event in eventList ]
-        }
+                "source" : self.name,
+                "sport name" : sport_name,
+                "all keys" : list(set(all_keys))
+            }
     def getScores(self, sport_name, event_key):
         response = requests.get(f'https://api.the-odds-api.com/v4/sports/{event_key}/scores/?apiKey={self.API_KEY}').json()
         return { 
@@ -167,3 +168,14 @@ class BetsAPI():
             "sport name" : sport_name,
             "upcomming events" : response
         }
+  
+class algebric_expression():
+    def __init__(self, expression:str) -> None:
+        self.expression = expression
+        self.operators = [ '+', '-' ]
+        self.terms = self.getTerms()
+    def getTerms(self):
+        exp = self.expression.replace(' ', '')
+        for op in self.operators:
+            exp = exp.replace(op, 'OPERATOR_HERE')
+        return exp.split('OPERATOR_HERE')
