@@ -4,4 +4,4 @@
 /pyproject.toml
 /.idea
 /solver.py
-./rough.py
+/rough.py
