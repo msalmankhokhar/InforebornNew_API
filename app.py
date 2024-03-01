@@ -1,10 +1,15 @@
 from flask import Flask, render_template, request, redirect, jsonify, make_response, url_for
+from flask_cors import CORS
+from flask_caching import Cache
 import json
 from urllib.parse import urljoin
 from util import OddsAPI, BetsAPI, keysDict, valid_sport_params, valid_sport_names, listToText, sports_from_ODDSAPI, sports_from_BETSAPI
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'salmankhokhar'
+cors = CORS(app)
+
+cache = Cache(app=app, config={'CACHE_TYPE': 'SimpleCache', "CACHE_DEFAULT_TIMEOUT": 300})
 
 try:
     with open("/home/salman138/mysite/settings.json", "rt") as file:
@@ -35,8 +40,6 @@ class ErrorJSON():
         self.response = (self.json, status)
     def add(self, content):
         self.json.update(content)
-    # def __call__(self):
-    #     return self.response
 
 @app.route("/", methods=["GET"])
 def home():
@@ -58,6 +61,7 @@ def getReadme():
     return readmeText
 
 @app.route("/events/<string:sport_name>", methods=["GET"])
+@cache.cached()
 def events(sport_name):
     if sport_name in valid_sport_params:
         if sport_name == "all":
@@ -87,6 +91,7 @@ def events(sport_name):
         return ErrorJSON(f"Invalid sport name. Valid Sports names are {listToText(valid_sport_params)}. 'all' means all sports").response
 
 @app.route("/odds/<string:sport_name>/<string:event_key>", methods=["GET"])
+@cache.cached(timeout=60)
 def data(sport_name, event_key):
     if sport_name in valid_sport_params:
         keysInOddsAPI = oddsAPI.getAllEventsKeys(sport_name).get("all keys")
@@ -118,6 +123,7 @@ def data(sport_name, event_key):
         return ErrorJSON(f"Invalid sport name. Valid Sports names are {listToText(valid_sport_params)}. 'all' means all sports").response
     
 @app.route('/scores/<string:sport_name>/<string:event_key>', methods=["GET"])
+@cache.cached(timeout=20)
 def scores(sport_name, event_key):
     if sport_name in valid_sport_params:
         keysInOddsAPI = oddsAPI.getAllEventsKeys(sport_name).get("all keys")
@@ -151,6 +157,7 @@ def scores(sport_name, event_key):
         return ErrorJSON(f"Invalid sport name. Valid Sports names are {listToText(valid_sport_params)}. 'all' means all sports").response
     
 @app.route('/upcomming/<string:sport_name>', methods=["GET"])
+@cache.cached()
 def upcomming_events(sport_name):
     if sport_name in valid_sport_params:
         if sport_name == "all":
