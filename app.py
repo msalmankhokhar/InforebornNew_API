@@ -123,7 +123,6 @@ def data(sport_name, event_key):
         return ErrorJSON(f"Invalid sport name. Valid Sports names are {listToText(valid_sport_params)}. 'all' means all sports").response
     
 @app.route("/match/<string:sport_name>/<string:event_key>", methods=["GET"])
-# @cache.cached()
 def match(sport_name, event_key):
     if sport_name in valid_sport_params:
         keysInOddsAPI = oddsAPI.getAllEventsKeys(sport_name).get("all keys")
@@ -134,21 +133,35 @@ def match(sport_name, event_key):
             # print("key is digit")
             if betsAPI.isWorking():
                 if event_key in keysInBetsAPI:
-                    return makeResponseJSON(betsAPI.getMatch(event_key=event_key, sport_name=sport_name))
+                    funcResponse = betsAPI.getMatch(event_key=event_key, sport_name=sport_name)
+                    if funcResponse == False:
+                        response = ErrorJSON(
+                            msg=f"Requested match of {sport_name} with event key {event_key} not found",
+                            status=404
+                            )
+                        return response.response
+                    return makeResponseJSON(funcResponse)
                 else:
                     if len(keysInBetsAPI) == 0:
                         return ErrorJSON(f"Currently no events are being recieved from betsapi. Check all events of {sport_name} returned by OddsAPI and BetsAPI at {request.host_url}events/{sport_name}").response
                     else:
-                        return ErrorJSON(f"Invalid event key. Get a valid event key from here {request.host}events/{sport_name}").response
+                        return ErrorJSON(f"Invalid event key. Get a valid event key from here {request.host_url}events/{sport_name}").response
             else:
                 return ErrorJSON("BetsAPI is not working. May be the trial or suscription is over. Please resubscribe or buy the trial again.").response
         elif event_key[0].isalpha():
             match_id = request.args.get("match_id")
             if not match_id or match_id == '':
-                response = ErrorJSON(f"Missing or invalid match_id. Provide a match_id in URL params such as '{urljoin(request.host_url, url_for('match'))}?match_id=<match_id here>'. You only need to provide match_id if you want to access a match from odds API. Get a match_id from {request.host_url}events/{sport_name} and pass as URL param in /match endpoint ")
+                response = ErrorJSON(f"Missing or invalid match_id. Provide a match_id in URL params such as {urljoin(request.host_url, url_for('match', sport_name=sport_name, event_key=event_key))}?match_id=<match_id here>, You only need to provide match_id if you want to access a match from odds API. Get a match_id from {request.host_url}events/{sport_name} and pass as URL param in /match endpoint ")
                 return response.response
             if event_key in keysInOddsAPI:
-                return makeResponseJSON(oddsAPI.getMatch(event_key=event_key, sport_name=sport_name, match_id=match_id))
+                funcResponse = oddsAPI.getMatch(event_key=event_key, sport_name=sport_name, match_id=match_id)
+                if funcResponse == False:
+                    response = ErrorJSON(
+                        msg=f"Requested match of {sport_name} with event key {event_key} and match_id {match_id} not found",
+                        status=404
+                        )
+                    return response.response
+                return makeResponseJSON(funcResponse)
             else:
                 response = ErrorJSON(f"Invalid event key. Get a valid event key from here {request.host_url}events/{sport_name}, or you can use any of the given valid event keys")
                 response.add({ "valid event keys" : oddsAPI.getAllEventsKeys(sport_name).get("all keys") + betsAPI.getAllEventsKeys(sport_name).get("all keys") })

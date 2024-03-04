@@ -95,8 +95,8 @@ class OddsAPI():
                         print("Entered if 2")
                         response.update({ "match" : event})
                         return response
-        response.update({ "msg" : f"Requested match of {event_key} not found" })
-        return response
+        # response.update({ "msg" : f"Requested match of {event_key} not found" })
+        return False
        
 class BetsAPI():
     def __init__(self) -> None:
@@ -201,5 +201,5 @@ class BetsAPI():
             if event.get("event_key") == event_key:
                 response.update({ "match" : event})
                 return response
-        response.update({ "msg" : f"Requested match of {event_key} not found" })
-        return response
+        # response.update({ "msg" : f"Requested match of {event_key} not found" })
+        return None
