@@ -123,7 +123,7 @@ def data(sport_name, event_key):
         return ErrorJSON(f"Invalid sport name. Valid Sports names are {listToText(valid_sport_params)}. 'all' means all sports").response
     
 @app.route("/match/<string:sport_name>/<string:event_key>", methods=["GET"])
-@cache.cached()
+# @cache.cached()
 def match(sport_name, event_key):
     if sport_name in valid_sport_params:
         keysInOddsAPI = oddsAPI.getAllEventsKeys(sport_name).get("all keys")
