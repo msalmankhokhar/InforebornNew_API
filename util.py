@@ -77,7 +77,26 @@ class OddsAPI():
             "source" : self.name,
             "sport name" : sport_name,
             "scores" : response
+        }   
+    def getMatch(self, sport_name, event_key, match_id):
+        activeEventsList = self.getActiveEvents('Cricket').get('active events')
+        response =  { 
+            "source" : self.name,
+            "sport name" : sport_name,
+            "match" : None
         }
+        for mainEvent in activeEventsList:
+            print("Entered for loop")
+            if mainEvent.get("active events")[0].get("sport_key") == event_key:
+                print("Entered if")
+                for event in mainEvent.get("active events"):
+                    print("Entered for 2")
+                    if event.get("id") == match_id:
+                        print("Entered if 2")
+                        response.update({ "match" : event})
+                        return response
+        response.update({ "msg" : f"Requested match of {event_key} not found" })
+        return response
        
 class BetsAPI():
     def __init__(self) -> None:
@@ -90,16 +109,20 @@ class BetsAPI():
             'Horse Racing' : '2',
             'Greyhounds' : '4'
         }
+        # self.sampleLink = f"https://api.b365api.com/v1/events/inplay?sport_id=3&token={self.API_KEY}"
+        self.sampleLink = f"https://api.b365api.com/v1/bet365/inplay_filter?sport_id=3&token={self.API_KEY}"
     def isWorking(self):
-        response = requests.get(f"https://api.b365api.com/v3/events/inplay?sport_id=3&token={self.API_KEY}")    
+        response = requests.get(self.sampleLink)    
         if response.status_code == 200:
             return True
         else:
             return False
     def getActiveEvents(self, sport_name):
         sport_id = self.SportsID_Dict.get(sport_name)
+        link = f'https://api.b365api.com/v1/bet365/inplay_filter?sport_id={sport_id}&token={self.API_KEY}'
+        print(f"Link for events {link}")
         # response = requests.get(f'https://api.b365api.com/v3/events/inplay?sport_id={sport_id}&token={self.API_KEY}').json()
-        response = requests.get(f'https://api.b365api.com/v1/bet365/inplay_filter?sport_id={sport_id}&token={self.API_KEY}').json()
+        response = requests.get(link).json()
         if response.get("success") == 1:
             # customResponse = [ { "event_key" : result.get("league").get("id"), "title" : result.get("league").get("name") } for result in response.get("results") ]
             customResponse = [ 
@@ -158,8 +181,7 @@ class BetsAPI():
             "source" : self.name,
             "sport name" : sport_name,
             "scores" : response
-        }
-    
+        } 
     def getUpcommingEvents(self, sport_name):
         sport_id = self.SportsID_Dict.get(sport_name)
         response = requests.get(f'https://api.b365api.com/v1/bet365/upcoming?sport_id={sport_id}&token={self.API_KEY}').json()
@@ -168,14 +190,16 @@ class BetsAPI():
             "sport name" : sport_name,
             "upcomming events" : response
         }
-  
-class algebric_expression():
-    def __init__(self, expression:str) -> None:
-        self.expression = expression
-        self.operators = [ '+', '-' ]
-        self.terms = self.getTerms()
-    def getTerms(self):
-        exp = self.expression.replace(' ', '')
-        for op in self.operators:
-            exp = exp.replace(op, 'OPERATOR_HERE')
-        return exp.split('OPERATOR_HERE')
+    def getMatch(self, sport_name, event_key):
+        activeEventsList = self.getActiveEvents('Cricket').get('active events')
+        response = { 
+            "source" : self.name,
+            "sport name" : sport_name,
+            "match" : None
+        }
+        for event in activeEventsList:
+            if event.get("event_key") == event_key:
+                response.update({ "match" : event})
+                return response
+        response.update({ "msg" : f"Requested match of {event_key} not found" })
+        return response

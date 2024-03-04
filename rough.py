@@ -27,7 +27,17 @@ for getting event odds
 oddsAPI = OddsAPI()
 betsAPI = BetsAPI()
 
-printJSON(oddsAPI.getUpcommingEvents('Cricket', 'cricket_odi'))
+# printJSON(oddsAPI.getActiveEvents('Cricket').get('active events'))
+# match = oddsAPI.getMatch('Cricket', 'cricket_international_t20', '41ef6a4aebcf4458bafd6d582aef09fb')
+# match = betsAPI.getMatch('Cricket', '150915299')
+# printJSON(match)
+print(betsAPI.isWorking())
+# betsAPI.getActiveEvents('Cricket')
+
+# mylst = [ 
+#     { "id" : 1, "name" : "salman" }, 
+#     { "id" : 2, "name" : "imran" } 
+#     ]
 
 # keysInOddsAPI = oddsAPI.getAllEventsKeys('Cricket').get("all keys")
 # keysInBetsAPI = betsAPI.getAllEventsKeys('Cricket').get("all keys")
