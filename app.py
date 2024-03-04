@@ -222,6 +222,13 @@ def upcomming_events(sport_name):
     else:
         return ErrorJSON(f"Invalid sport name. Valid Sports names are {listToText(valid_sport_params)}. 'all' means all sports").response
 
+@app.route('/tokens', methods=['GET'])
+def tokens():
+    return {
+        "Bets API" : betsAPI.API_KEY,
+        "Odds API" : oddsAPI.API_KEY
+        }
+
 @app.errorhandler(404)
 def not_found(e):
     return ErrorJSON(f"Endpoint not found(404), Please read API documentation at { urljoin( request.host_url, url_for('docs') ) }", 404).response
