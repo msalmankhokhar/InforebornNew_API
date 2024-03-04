@@ -1,4 +1,5 @@
 import requests
+import datetime
 
 valid_sport_params = ["Cricket", "Tennis", "Soccer", "Horse Racing", "Greyhounds", "all"]
 valid_sport_names = ["Cricket", "Tennis", "Soccer", "Horse Racing", "Greyhounds"]
@@ -20,6 +21,14 @@ def listToText(list):
         elif list.index(item) == lastIndex-1:
             str += " and "
     return str
+
+def parseTime(timeStamp):
+    try:
+        dt = datetime.datetime.utcfromtimestamp(int(timeStamp))
+        formatted_time = dt.strftime("%Y-%m-%dT%H:%M:%SZ")
+        return formatted_time
+    except Exception as e:
+        return timeStamp
 
 keysDict = {
     "tennis_atp_aus_open_singles" : {
@@ -130,7 +139,8 @@ class BetsAPI():
                     "event_key" : result.get("id"), 
                     "event title" : result.get("league").get("name"),
                     "home" : result.get("home"),
-                    "away" : result.get("away")
+                    "away" : result.get("away"),
+                    "commence_time" : parseTime(result.get("time")), 
                 } 
             for result in response.get("results")
             ]
