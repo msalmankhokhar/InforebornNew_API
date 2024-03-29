@@ -1,5 +1,6 @@
 import requests
 import datetime
+from tokens import BETS_API_KEY, ODDS_API_KEY
 
 valid_sport_params = ["Cricket", "Tennis", "Soccer", "Horse Racing", "Greyhounds", "all"]
 valid_sport_names = ["Cricket", "Tennis", "Soccer", "Horse Racing", "Greyhounds"]
@@ -46,7 +47,7 @@ keysDict = {
 class OddsAPI():
     def __init__(self) -> None:
         self.name = "OddsAPI"   
-        self.API_KEY = '7371cc45412eb97aa50cc37c49d2ec63'
+        self.API_KEY = ODDS_API_KEY
         self.valid_sport_groups = [ "Cricket" , "Tennis" , "Soccer" , "American Football"]
         self.valid_oddsFormats = [ "american" , "decimal" ]
         self.valid_regions = [ "eu" , "us" , "us2" , "uk" , "au" ]
@@ -109,7 +110,7 @@ class OddsAPI():
        
 class BetsAPI():
     def __init__(self) -> None:
-        self.API_KEY = '174934-G2BfmL0xkgBnUk'
+        self.API_KEY = BETS_API_KEY
         self.name = "BetsAPI"
         self.SportsID_Dict = {
             'Cricket' : '3',
@@ -157,8 +158,6 @@ class BetsAPI():
                 "active events" : response
             }
     def getData(self, event_key, sport_name):
-        # api_response = requests.get(f'https://api.b365api.com/v2/event/odds/summary?event_id={event_key}&token={self.API_KEY}').json()
-        # api_response = requests.get(f'https://api.b365api.com/v2/event/odds?event_id={event_key}&token={self.API_KEY}').json()
         api_response = requests.get(f'https://api.b365api.com/v3/bet365/prematch?token={self.API_KEY}&FI={event_key}').json()
         api_response.update( { "results" : [ insert_kv(result, 'event name', self.getEventName(event_key), 0) for result in api_response.get('results') ] } )
         return { 
