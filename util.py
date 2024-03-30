@@ -90,7 +90,7 @@ class OddsAPI():
                 "all keys" : list(set(all_keys))
             }
     def getScores(self, sport_name, event_key):
-        response = requests.get(f'https://api.the-odds-api.com/v4/sports/{event_key}/scores/?apiKey={self.API_KEY}').json()
+        response = requests.get(f'https://api.the-odds-api.com/v4/sports/{event_key}/scores/?daysFrom=1&apiKey={self.API_KEY}').json()
         return { 
             "source" : self.name,
             "sport name" : sport_name,
