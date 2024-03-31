@@ -4,15 +4,52 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>API Docs</title>
+    <title>Betting API Documentation</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 
+<style>
+  #mainCont{
+    max-width: 100vw;
+    overflow-wrap: break-word;
+  }
+  #themeBtnBox{
+    position: fixed;
+    z-index: 1;
+    top: 45px;
+    right: 20px;
+    font-size: 1.3rem;
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    border: 1px solid rgb(132, 132, 132);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+  }
+  #themeBtnBox.light{
+    background: white;
+  }
+  #themeBtnBox:hover{
+    box-shadow: 2px 2px 8px rgb(154, 154, 154);
+  }
+  #themeIcon.fa-sun{
+    color: white;
+  }
+  #themeIcon.fa-moon{
+    color: black;
+    background-color: white;
+  }
+</style>
+
 <body>
-    <div class="container">
-        <!-- <h1 class="text-center my-3">InfoRebornNew API by Salman</h1> -->
+    <div class="container" id="mainCont">
+      <div id="themeBtnBox">
+        <i class="fa-solid fa-sun" id="themeIcon"></i>
+      </div>
         <p class="text-center my-3"><strong><a href="https://github.com/msalmankhokhar/InforebornNew_API" target="_blank">Click Here</a></strong> to go to the Github Repository</p>
         <div id="readme-container" class="my-3"></div>
     </div>
@@ -20,10 +57,17 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
-<!-- <script src="https://kit.fontawesome.com/7d3f73a100.js" crossorigin="anonymous"></script> -->
+<script src="https://kit.fontawesome.com/7d3f73a100.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.58/darkreader.min.js"></script>
 <script>
+
+  let state = {
+    theme : true
+  }
+
+  let themeIcon = document.getElementById("themeIcon")
+  let themeBtnBox = document.getElementById("themeBtnBox")
 
   function renderREADME() {
     fetch('/get-readme')
@@ -44,10 +88,31 @@
     });
   }
 
+  function setLightMode(){
+    DarkReader.disable()
+  }
+
   window.onload = ()=>{
     renderREADME();
     setDarkMode();
   }
+
+  document.getElementById("themeBtnBox").addEventListener("click", (event)=>{
+    // User pressed theme button
+    if (state.theme) {
+      // If current theme is dark do this:
+      setLightMode()
+      themeIcon.classList.replace("fa-sun", "fa-moon")
+      themeBtnBox.classList.toggle("light")
+      state.theme = false
+    }else{
+      // if current theme is light do this:
+      setDarkMode()
+      themeIcon.classList.replace("fa-moon", "fa-sun")
+      themeBtnBox.classList.toggle("light")
+      state.theme = true
+    }
+  })
 
 </script>
 </html>
