@@ -111,12 +111,8 @@ def data(sport_name, event_key):
             else:
                 return ErrorJSON("BetsAPI is not working. May be the trial or suscription is over. Please resubscribe or buy the trial again.").response
         elif event_key[0].isalpha():
-            match_id = request.args.get("match_id")
-            if not match_id or match_id == '':
-                response = ErrorJSON(f"Missing or invalid match_id. Provide a match_id in URL params such as {urljoin(request.host_url, url_for('match', sport_name=sport_name, event_key=event_key))}?match_id=<match_id here>, You only need to provide match_id if you want to access a match from odds API. Get a match_id from {request.host_url}events/{sport_name} and pass as URL param in /match endpoint ")
-                return response.response
             if event_key in keysInOddsAPI:
-                return makeResponseJSON(oddsAPI.getData(event_key=event_key, sport_name=sport_name, match_id=match_id))
+                return makeResponseJSON(oddsAPI.getData(event_key=event_key, sport_name=sport_name))
             else:
                 response = ErrorJSON(f"Invalid event key. Get a valid event key from here {request.host_url}events/{sport_name}, or you can use any of the given valid event keys")
                 response.add({ "valid event keys" : oddsAPI.getAllEventsKeys(sport_name).get("all keys") + betsAPI.getAllEventsKeys(sport_name).get("all keys") })

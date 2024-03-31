@@ -67,20 +67,12 @@ class OddsAPI():
             "sport name" : sport_name,
             "active events" : customResponse
         }
-    def getData(self, event_key, sport_name, match_id=None, oddsFormat='decimal', region='uk', bookmakers='betfair_ex_uk', markets='h2h'):
+    def getData(self, event_key, sport_name, oddsFormat='decimal', region='uk', bookmakers='betfair_ex_uk', markets='h2h'):
         data = requests.get(f'https://api.the-odds-api.com/v4/sports/{event_key}/odds?regions={region}&oddsFormat={oddsFormat}&bookmakers={bookmakers}&markets={markets}&apiKey={self.API_KEY}').json()
-        response = { 
+        return { 
             "sport name" : sport_name,
-            f"data from {self.name}" : {
-                "simple odds" : data
-            }
+            f"odds data from {self.name}" : data
         }
-        if match_id == None:
-            return response
-        else:
-            fancy_odds = requests.get(f'https://api.the-odds-api.com/v4/sports/{event_key}/events/{match_id}/odds?apiKey={self.API_KEY}&regions={region}&markets={markets}&oddsFormat={oddsFormat}').json()
-            response.update({ "fancy odds" : fancy_odds })
-            return response
     def getAllEventsKeys(self, sport_name):
         activeEvents = self.getActiveEvents(sport_name)
         all_keys = [event['sport_key'] for sport in activeEvents['active events'] for event in sport['active events']]
@@ -170,7 +162,7 @@ class BetsAPI():
         api_response.update( { "results" : [ insert_kv(result, 'event name', self.getEventName(event_key), 0) for result in api_response.get('results') ] } )
         return { 
             "sport name" : sport_name,
-            f"data from {self.name}" : api_response
+            f"odds data from {self.name}" : api_response
         }
     def getAllEventsKeys(self, sport_name):
         activeEvents = self.getActiveEvents(sport_name)
