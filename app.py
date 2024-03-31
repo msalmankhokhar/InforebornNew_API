@@ -245,8 +245,8 @@ def internal_server_error(e):
     return errorJson.response
 
 # app run settings
-app_port = 81
-debug = False
+app_port = 5000
+debug = True
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=app_port, debug=debug)
