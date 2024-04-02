@@ -3,7 +3,7 @@ from flask_cors import CORS
 from flask_caching import Cache
 import json
 from urllib.parse import urljoin
-from util import OddsAPI, BetsAPI, keysDict, valid_sport_params, valid_sport_names, listToText, sports_from_ODDSAPI, sports_from_BETSAPI
+from util import OddsAPI, BetsAPI, keysDict, valid_sport_params, valid_sport_names, listToText, sports_from_ODDSAPI, sports_from_BETSAPI, isInternetConnected
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'salmankhokhar'
@@ -40,6 +40,11 @@ class ErrorJSON():
         self.response = (self.json, status)
     def add(self, content):
         self.json.update(content)
+
+@app.before_request
+def checkInternet():
+    if isInternetConnected() == False:
+        return ErrorJSON('Sever is not connected to the Internet. Cannot access external APIs', 503).response
 
 @app.route("/", methods=["GET"])
 def home():
