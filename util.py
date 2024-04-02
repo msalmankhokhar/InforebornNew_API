@@ -16,7 +16,7 @@ valid_sport_names = ["Cricket", "Tennis", "Soccer", "Horse Racing", "Greyhounds"
 sports_from_ODDSAPI = ["Tennis"]
 sports_from_BETSAPI = ["Cricket","Soccer", "Horse Racing", "Greyhounds"]
 
-with open('betsapi_fields.json', 'r') as file:
+with open('./betsapi_fields.json', 'r') as file:
     betsapi_fields = json.load(file)
 
 def insert_kv(givenDict, key, value, position):
