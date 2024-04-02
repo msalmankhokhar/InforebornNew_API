@@ -3,6 +3,7 @@ import datetime
 from tokens import BETS_API_KEY, ODDS_API_KEY
 import json
 from urllib import request
+import os
 
 def isInternetConnected():
     try:
@@ -11,13 +12,25 @@ def isInternetConnected():
     except request.URLError as err: 
         return False
 
+def makePathforPAW(path:str):
+    """
+    Takes relative path and generates 
+    path for pythonanywhere to prevent 
+    error on Pythonanywhere
+    """
+    return f'/home/salman138/mysite/{path}'
+
 valid_sport_params = ["Cricket", "Tennis", "Soccer", "Horse Racing", "Greyhounds", "all"]
 valid_sport_names = ["Cricket", "Tennis", "Soccer", "Horse Racing", "Greyhounds"]
 sports_from_ODDSAPI = ["Tennis"]
 sports_from_BETSAPI = ["Cricket","Soccer", "Horse Racing", "Greyhounds"]
 
-with open('./betsapi_fields.json', 'r') as file:
-    betsapi_fields = json.load(file)
+try:
+    with open(makePathforPAW('betsapi_fields.json'), 'r') as file:
+        betsapi_fields = json.load(file)
+except Exception as error:
+    with open('betsapi_fields.json', 'r') as file:
+        betsapi_fields = json.load(file)
 
 def insert_kv(givenDict, key, value, position):
     items = list(givenDict.items())

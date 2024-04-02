@@ -3,7 +3,7 @@ from flask_cors import CORS
 from flask_caching import Cache
 import json
 from urllib.parse import urljoin
-from util import OddsAPI, BetsAPI, keysDict, valid_sport_params, valid_sport_names, listToText, sports_from_ODDSAPI, sports_from_BETSAPI, isInternetConnected
+from util import OddsAPI, BetsAPI, makePathforPAW, keysDict, valid_sport_params, valid_sport_names, listToText, sports_from_ODDSAPI, sports_from_BETSAPI, isInternetConnected
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'salmankhokhar'
@@ -12,10 +12,9 @@ cors = CORS(app)
 cache = Cache(app=app, config={'CACHE_TYPE': 'SimpleCache', "CACHE_DEFAULT_TIMEOUT": 300})
 
 try:
-    with open("/home/salman138/mysite/settings.json", "rt") as file:
+    with open(makePathforPAW('settings.json'), "rt") as file:
         app_settings = json.load(file)
 except Exception as error:
-    print(error)
     with open("./settings.json", "rt") as file:
         app_settings = json.load(file)
 
