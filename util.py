@@ -7,10 +7,10 @@ import os
 
 def isInternetConnected():
     try:
-        request.urlopen('https://8.8.8.8', timeout=5)
+        request.urlopen('https://www.google.com', timeout=5)
         return True
     except request.URLError as err: 
-        return False
+        return err
 
 def makePathforPAW(path:str):
     """

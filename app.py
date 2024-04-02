@@ -42,8 +42,11 @@ class ErrorJSON():
 
 @app.before_request
 def checkInternet():
-    if isInternetConnected() == False:
-        return ErrorJSON('Sever is not connected to the Internet. Cannot access external APIs', 503).response
+    status = isInternetConnected()
+    if status != True:
+        resp = ErrorJSON('Sever is not connected to the Internet. Cannot access external APIs', 503)
+        resp.add({ "error" : str(status) })
+        return resp.response
 
 @app.route("/", methods=["GET"])
 def home():
