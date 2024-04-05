@@ -138,7 +138,9 @@ def fancy(event_key):
     if response.get('success') == 1:
         return makeResponseJSON(response)
     else:
-        return ErrorJSON(f'Something is wrong with your given params. Make sure the event key is valid and optional params (sport_name and variant) are also valid. Valid variants are sb (sportsbook) and ex(exchange). Valid sport_names are {listToText(valid_sport_params)}. Pass them in URL as /fancy/<event key here>?sport_name=Cricket&variant=sb')
+        error = ErrorJSON(f'Something is wrong with your given params. Make sure the event key is valid and optional params (sport_name and variant) are also valid. Valid variants are sb (sportsbook) and ex(exchange). Valid sport_names are {listToText(valid_sport_names)}. Pass them in URL as /fancy/<event key here>?sport_name=Cricket&variant=sb')
+        error.add({ "response from BetsAPI" : response })
+        return error.response
     
 @app.route("/match/<string:sport_name>/<string:event_key>", methods=["GET"])
 def match(sport_name, event_key):
