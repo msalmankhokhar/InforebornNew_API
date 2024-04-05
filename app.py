@@ -25,6 +25,12 @@ betsAPI = BetsAPI()
 
 use_both_APIs = True
 
+def checkURLParam(param):
+    if param == None or str(param).strip() == '':
+        return False
+    else:
+        return True
+
 def makeResponseJSON(content):
     return {
         "success" : True,
@@ -97,6 +103,15 @@ def events(sport_name):
     else:
         return ErrorJSON(f"Invalid sport name. Valid Sports names are {listToText(valid_sport_params)}. 'all' means all sports").response
 
+@app.route("/events/betfair", methods=["GET"])
+# @cache.cached()
+def betfair_events():
+    variant = request.args.get('variant')
+    if variant and variant.strip() != '':
+        return makeResponseJSON(betsAPI.getBetfairActiveEvents(variant=variant))
+    else:
+        return makeResponseJSON(betsAPI.getBetfairActiveEvents())
+
 @app.route("/odds/<string:sport_name>/<string:event_key>", methods=["GET"])
 @cache.cached(timeout=60)
 def data(sport_name, event_key):
@@ -129,18 +144,13 @@ def data(sport_name, event_key):
     else:
         return ErrorJSON(f"Invalid sport name. Valid Sports names are {listToText(valid_sport_params)}. 'all' means all sports").response
 
-@app.route("/fancy/<string:event_key>", methods=["GET"])
-@cache.cached(timeout=60)
-def fancy(event_key):
-    sport_name = request.args.get('sport_name')
-    variant = request.args.get('variant')
-    response = betsAPI.getFancyOdds(event_key, sport_name, variant)
-    if response.get('success') == 1:
-        return makeResponseJSON(response)
+@app.route("/fancy/<string:variant>/<string:event_key>", methods=["GET"])
+# @cache.cached(timeout=60)
+def fancy(variant, event_key):
+    if variant in [ 'ex', 'sb' ]:
+        return makeResponseJSON(betsAPI.getFancyOdds(event_key=event_key, variant=variant))
     else:
-        error = ErrorJSON(f'Something is wrong with your given params. Make sure the event key is valid and optional params (sport_name and variant) are also valid. Valid variants are sb (sportsbook) and ex(exchange). Valid sport_names are {listToText(valid_sport_names)}. Pass them in URL as /fancy/<event key here>?sport_name=Cricket&variant=sb')
-        error.add({ "response from BetsAPI" : response })
-        return error.response
+        return ErrorJSON('Invalid betfair variant. Choose from sb (sportsbook) or ex (exchange)').response
     
 @app.route("/match/<string:sport_name>/<string:event_key>", methods=["GET"])
 def match(sport_name, event_key):

@@ -1,0 +1,53 @@
+{
+    "response": {
+      "fancy odds from Betfair API": {
+        "description": {
+          "metadata": {
+            "runnerId": "7671296"
+          },
+          "runnerName": "Sunrisers Hyderabad"
+        },
+        "exchange": {
+          "availableToBack": [
+            {
+              "price": 1.1,
+              "size": 138970.53
+            },
+            {
+              "price": 1.09,
+              "size": 544495.93
+            },
+            {
+              "price": 1.08,
+              "size": 357261.96
+            }
+          ],
+          "availableToLay": [
+            {
+              "price": 1.11,
+              "size": 1040702.1
+            },
+            {
+              "price": 1.12,
+              "size": 26678.39
+            },
+            {
+              "price": 1.13,
+              "size": 13234
+            }
+          ]
+        },
+        "handicap": 0,
+        "selectionId": 7671296,
+        "state": {
+          "lastPriceTraded": 1.11,
+          "sortPriority": 1,
+          "status": "ACTIVE",
+          "totalMatched": 0
+        }
+      },
+      "sport name": "Cricket",
+      "variant": "ex"
+    },
+    "success": true
+  }

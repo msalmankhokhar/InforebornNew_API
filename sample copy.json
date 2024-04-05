@@ -1,0 +1,2477 @@
+{
+  "success": 1,
+  "results": [
+    {
+      "event": {
+        "eventId": 33152500,
+        "eventTypeId": 4,
+        "key": "EVENT:33152500",
+        "name": "Sunrisers Hyderabad v Chennai Super Kings",
+        "countryCode": "GB",
+        "competitionId": 101480,
+        "videoAvailable": false,
+        "timezone": "GMT",
+        "onTvChannels": [
+          "Sky Sports Cricket"
+        ],
+        "openDate": "2024-04-05T14:00:00.000Z"
+      },
+      "updated_at": "1712333689",
+      "timeline": {
+        "currentDay": "1",
+        "score": {
+          "away": {
+            "penaltiesSequence": [],
+            "fullTimeScore": "",
+            "highlight": false,
+            "inning1": {
+              "overs": "20.0",
+              "runs": "165",
+              "wickets": "5"
+            },
+            "penaltiesScore": "",
+            "halfTimeScore": "",
+            "name": "Chennai Super Kings"
+          },
+          "home": {
+            "penaltiesSequence": [],
+            "highlight": true,
+            "fullTimeScore": "",
+            "inning1": {
+              "runs": "57",
+              "overs": "4.0",
+              "wickets": "1"
+            },
+            "penaltiesScore": "",
+            "name": "Sunrisers Hyderabad",
+            "halfTimeScore": ""
+          }
+        },
+        "currentSet": 1,
+        "matchStatus": "InPlay",
+        "matchType": "LIMITED_OVER",
+        "eventTypeId": 4,
+        "eventId": 33152500,
+        "stateOfBall": {
+          "appealTypeName": "Not Out",
+          "batsmanName": "",
+          "outcomeId": "0",
+          "overBallNumber": "6",
+          "bye": "0",
+          "legBye": "0",
+          "bowlerName": "Maheesh Theekshana",
+          "overNumber": "3",
+          "noBall": "0",
+          "wide": "0",
+          "appealId": "0",
+          "batsmanRuns": "",
+          "referralOutcome": "0",
+          "dismissalTypeName": "Not Out"
+        },
+        "hasSets": false,
+        "fullTimeElapsed": {
+          "sec": 0,
+          "hour": 0,
+          "min": 0
+        }
+      },
+      "timeline_updated_at": "1712333790",
+      "markets": [
+        {
+          "rates": {
+            "marketBaseRate": 5,
+            "discountAllowed": true
+          },
+          "isMarketDataVirtual": true,
+          "description": {
+            "bspMarket": false,
+            "marketTime": "2024-04-05T14:00:00.000Z",
+            "priceLadderDescription": {
+              "type": "CLASSIC"
+            },
+            "bettingType": "ODDS",
+            "turnInPlayEnabled": true,
+            "marketName": "Match Odds",
+            "suspendTime": "2024-04-05T14:00:00.000Z",
+            "marketType": "MATCH_ODDS",
+            "persistenceEnabled": true
+          },
+          "runners": [
+            {
+              "handicap": 0,
+              "state": {
+                "totalMatched": 0,
+                "status": "ACTIVE",
+                "sortPriority": 1,
+                "lastPriceTraded": 1.2
+              },
+              "selectionId": 7671296,
+              "exchange": {
+                "availableToLay": [
+                  {
+                    "size": 400279.54,
+                    "price": 1.2
+                  },
+                  {
+                    "size": 327143.72,
+                    "price": 1.21
+                  },
+                  {
+                    "price": 1.22,
+                    "size": 65672.3
+                  }
+                ],
+                "availableToBack": [
+                  {
+                    "price": 1.19,
+                    "size": 209614.03
+                  },
+                  {
+                    "price": 1.18,
+                    "size": 99450.07
+                  },
+                  {
+                    "size": 118718.97,
+                    "price": 1.17
+                  }
+                ]
+              },
+              "description": {
+                "runnerName": "Sunrisers Hyderabad",
+                "metadata": {
+                  "runnerId": "7671296"
+                }
+              }
+            },
+            {
+              "description": {
+                "runnerName": "Chennai Super Kings",
+                "metadata": {
+                  "runnerId": "2954263"
+                }
+              },
+              "exchange": {
+                "availableToLay": [
+                  {
+                    "size": 176.66,
+                    "price": 6.2
+                  },
+                  {
+                    "size": 39261.73,
+                    "price": 6.4
+                  },
+                  {
+                    "size": 17338.88,
+                    "price": 6.6
+                  }
+                ],
+                "availableToBack": [
+                  {
+                    "size": 80055.91,
+                    "price": 6
+                  },
+                  {
+                    "price": 5.9,
+                    "size": 7409.68
+                  },
+                  {
+                    "price": 5.8,
+                    "size": 114.77
+                  }
+                ]
+              },
+              "selectionId": 2954263,
+              "state": {
+                "lastPriceTraded": 6,
+                "status": "ACTIVE",
+                "sortPriority": 2,
+                "totalMatched": 0
+              },
+              "handicap": 0
+            }
+          ],
+          "marketId": "1.226888545",
+          "isMarketDataDelayed": true,
+          "state": {
+            "numberOfRunners": 2,
+            "totalMatched": 107547406.125854,
+            "runnersVoidable": false,
+            "status": "OPEN",
+            "lastMatchTime": "2024-04-05T16:15:30.290Z",
+            "totalAvailable": 7456467.60054842,
+            "numberOfActiveRunners": 2,
+            "complete": true,
+            "bspReconciled": false,
+            "crossMatching": true,
+            "betDelay": 5,
+            "numberOfWinners": 1,
+            "version": 5840367318,
+            "inplay": true
+          },
+          "market": {
+            "marketTime": "2024-04-05T14:00:00.000Z",
+            "associatedMarkets": [
+              {
+                "eventId": 33152500,
+                "eventTypeId": 4,
+                "sportsbookMarketId": "924.400307264"
+              }
+            ],
+            "productType": "EXCHANGE",
+            "competitionId": 101480,
+            "upperLevelEventId": 28127348,
+            "inplay": true,
+            "marketName": "Match Odds",
+            "marketStatus": "OPEN",
+            "numberOfWinners": 1,
+            "canTurnInPlay": true,
+            "numberOfRunners": 2,
+            "totalMatched": 85897046.70969,
+            "numberOfActiveRunners": 2,
+            "totalAvailable": 6338050.6347,
+            "eventId": 33152500,
+            "eventTypeId": 4,
+            "topLevelEventId": 28127348,
+            "marketType": "MATCH_ODDS",
+            "marketLevels": [
+              "AVB_EVENT"
+            ],
+            "key": "MARKET:1.226888545",
+            "marketId": "1.226888545",
+            "numberOfUpperLevels": 1
+          }
+        },
+        {
+          "state": {
+            "crossMatching": true,
+            "betDelay": 5,
+            "version": 5840367300,
+            "inplay": true,
+            "numberOfWinners": 1,
+            "totalMatched": 327.497465496617,
+            "runnersVoidable": false,
+            "numberOfRunners": 2,
+            "totalAvailable": 2164.4764092576,
+            "numberOfActiveRunners": 2,
+            "status": "OPEN",
+            "lastMatchTime": "2024-04-05T15:46:15.136Z",
+            "complete": true,
+            "bspReconciled": false
+          },
+          "isMarketDataDelayed": true,
+          "marketId": "1.226888546",
+          "runners": [
+            {
+              "exchange": {
+                "availableToLay": [
+                  {
+                    "size": 2070.19,
+                    "price": 1.01
+                  }
+                ]
+              },
+              "description": {
+                "metadata": {
+                  "runnerId": "37302"
+                },
+                "runnerName": "Yes"
+              },
+              "handicap": 0,
+              "state": {
+                "lastPriceTraded": 1.01,
+                "status": "ACTIVE",
+                "sortPriority": 1,
+                "totalMatched": 0
+              },
+              "selectionId": 37302
+            },
+            {
+              "state": {
+                "sortPriority": 2,
+                "status": "ACTIVE",
+                "lastPriceTraded": 300,
+                "totalMatched": 0
+              },
+              "selectionId": 37303,
+              "handicap": 0,
+              "description": {
+                "metadata": {
+                  "runnerId": "37303"
+                },
+                "runnerName": "No"
+              },
+              "exchange": {
+                "availableToBack": [
+                  {
+                    "price": 100,
+                    "size": 48.8
+                  },
+                  {
+                    "price": 3,
+                    "size": 31.58
+                  }
+                ]
+              }
+            }
+          ],
+          "description": {
+            "marketType": "COMPLETED_MATCH",
+            "persistenceEnabled": true,
+            "suspendTime": "2024-04-05T14:00:00.000Z",
+            "marketName": "Completed Match",
+            "turnInPlayEnabled": true,
+            "bettingType": "ODDS",
+            "priceLadderDescription": {
+              "type": "CLASSIC"
+            },
+            "marketTime": "2024-04-05T14:00:00.000Z",
+            "bspMarket": false
+          },
+          "isMarketDataVirtual": true,
+          "rates": {
+            "discountAllowed": true,
+            "marketBaseRate": 5
+          },
+          "market": {
+            "numberOfUpperLevels": 1,
+            "marketId": "1.226888546",
+            "marketType": "COMPLETED_MATCH",
+            "key": "MARKET:1.226888546",
+            "marketLevels": [
+              "AVB_EVENT"
+            ],
+            "topLevelEventId": 28127348,
+            "eventTypeId": 4,
+            "eventId": 33152500,
+            "totalAvailable": 2143.8201,
+            "totalMatched": 327.44736,
+            "numberOfActiveRunners": 2,
+            "numberOfRunners": 2,
+            "numberOfWinners": 1,
+            "canTurnInPlay": true,
+            "marketStatus": "OPEN",
+            "marketName": "Completed Match",
+            "inplay": true,
+            "productType": "EXCHANGE",
+            "competitionId": 101480,
+            "upperLevelEventId": 28127348,
+            "marketTime": "2024-04-05T14:00:00.000Z",
+            "associatedMarkets": []
+          }
+        },
+        {
+          "runners": [
+            {
+              "description": {
+                "runnerName": "Yes",
+                "metadata": {
+                  "runnerId": "37302"
+                }
+              },
+              "exchange": {
+                "availableToBack": [
+                  {
+                    "size": 51.09,
+                    "price": 85
+                  },
+                  {
+                    "price": 65,
+                    "size": 106.58
+                  },
+                  {
+                    "price": 50,
+                    "size": 313.21
+                  }
+                ],
+                "availableToLay": [
+                  {
+                    "size": 17.96,
+                    "price": 160
+                  }
+                ]
+              },
+              "state": {
+                "status": "ACTIVE",
+                "sortPriority": 1,
+                "lastPriceTraded": 85,
+                "totalMatched": 0
+              },
+              "selectionId": 37302,
+              "handicap": 0
+            },
+            {
+              "selectionId": 37303,
+              "state": {
+                "totalMatched": 0,
+                "status": "ACTIVE",
+                "sortPriority": 2,
+                "lastPriceTraded": 1.02
+              },
+              "handicap": 0,
+              "description": {
+                "runnerName": "No",
+                "metadata": {
+                  "runnerId": "37303"
+                }
+              },
+              "exchange": {
+                "availableToBack": [
+                  {
+                    "price": 1.01,
+                    "size": 1610.97
+                  }
+                ],
+                "availableToLay": [
+                  {
+                    "price": 1.02,
+                    "size": 26432.61
+                  },
+                  {
+                    "size": 44164.1,
+                    "price": 1.03
+                  },
+                  {
+                    "price": 1.04,
+                    "size": 31590.01
+                  }
+                ]
+              }
+            }
+          ],
+          "marketId": "1.226888547",
+          "isMarketDataDelayed": true,
+          "state": {
+            "complete": true,
+            "bspReconciled": false,
+            "numberOfRunners": 2,
+            "totalMatched": 229507.50004854,
+            "runnersVoidable": false,
+            "status": "OPEN",
+            "lastMatchTime": "2024-04-05T16:16:10.117Z",
+            "totalAvailable": 194963.069599499,
+            "numberOfActiveRunners": 2,
+            "betDelay": 5,
+            "numberOfWinners": 1,
+            "version": 5840367304,
+            "inplay": true,
+            "crossMatching": true
+          },
+          "rates": {
+            "discountAllowed": true,
+            "marketBaseRate": 5
+          },
+          "isMarketDataVirtual": true,
+          "description": {
+            "priceLadderDescription": {
+              "type": "CLASSIC"
+            },
+            "bspMarket": false,
+            "marketTime": "2024-04-05T14:00:00.000Z",
+            "suspendTime": "2024-04-05T14:00:00.000Z",
+            "persistenceEnabled": true,
+            "marketType": "TIED_MATCH",
+            "bettingType": "ODDS",
+            "marketName": "Tied Match",
+            "turnInPlayEnabled": true
+          },
+          "market": {
+            "totalAvailable": 160293.8205,
+            "numberOfActiveRunners": 2,
+            "totalMatched": 223657.070169,
+            "topLevelEventId": 28127348,
+            "eventTypeId": 4,
+            "eventId": 33152500,
+            "numberOfUpperLevels": 1,
+            "marketId": "1.226888547",
+            "key": "MARKET:1.226888547",
+            "marketLevels": [
+              "AVB_EVENT"
+            ],
+            "marketType": "TIED_MATCH",
+            "associatedMarkets": [],
+            "marketTime": "2024-04-05T14:00:00.000Z",
+            "marketStatus": "OPEN",
+            "marketName": "Tied Match",
+            "inplay": true,
+            "productType": "EXCHANGE",
+            "upperLevelEventId": 28127348,
+            "competitionId": 101480,
+            "numberOfRunners": 2,
+            "canTurnInPlay": true,
+            "numberOfWinners": 1
+          }
+        },
+        {
+          "isMarketDataDelayed": true,
+          "marketId": "1.226888548",
+          "runners": [
+            {
+              "handicap": 0,
+              "state": {
+                "status": "ACTIVE",
+                "sortPriority": 1,
+                "lastPriceTraded": 1.12,
+                "totalMatched": 0
+              },
+              "selectionId": 7671296,
+              "exchange": {
+                "availableToBack": [
+                  {
+                    "size": 84619.23,
+                    "price": 1.21
+                  },
+                  {
+                    "price": 1.2,
+                    "size": 418964.63
+                  },
+                  {
+                    "price": 1.19,
+                    "size": 31655.12
+                  }
+                ],
+                "availableToLay": [
+                  {
+                    "size": 13142.73,
+                    "price": 1.23
+                  },
+                  {
+                    "size": 16914.05,
+                    "price": 1.24
+                  },
+                  {
+                    "price": 1.25,
+                    "size": 42624.38
+                  }
+                ]
+              },
+              "description": {
+                "runnerName": "Sunrisers Hyderabad",
+                "metadata": {
+                  "runnerId": "7671296"
+                }
+              }
+            },
+            {
+              "exchange": {
+                "availableToBack": [
+                  {
+                    "size": 24087.78,
+                    "price": 5.8
+                  },
+                  {
+                    "size": 2115.04,
+                    "price": 5.6
+                  }
+                ],
+                "availableToLay": [
+                  {
+                    "size": 311.9,
+                    "price": 6
+                  },
+                  {
+                    "size": 72009.32,
+                    "price": 6.2
+                  },
+                  {
+                    "size": 24502.75,
+                    "price": 6.4
+                  }
+                ]
+              },
+              "description": {
+                "runnerName": "Chennai Super Kings",
+                "metadata": {
+                  "runnerId": "2954263"
+                }
+              },
+              "handicap": 0,
+              "state": {
+                "totalMatched": 0,
+                "sortPriority": 2,
+                "status": "ACTIVE",
+                "lastPriceTraded": 5.9
+              },
+              "selectionId": 2954263
+            },
+            {
+              "description": {
+                "runnerName": "Tie",
+                "metadata": {
+                  "runnerId": "2312392"
+                }
+              },
+              "exchange": {
+                "availableToLay": [
+                  {
+                    "size": 778.62,
+                    "price": 110
+                  },
+                  {
+                    "price": 160,
+                    "size": 2.89
+                  }
+                ],
+                "availableToBack": [
+                  {
+                    "price": 85,
+                    "size": 75.47
+                  },
+                  {
+                    "price": 65,
+                    "size": 106.58
+                  },
+                  {
+                    "price": 50,
+                    "size": 313.24
+                  }
+                ]
+              },
+              "selectionId": 2312392,
+              "state": {
+                "totalMatched": 0,
+                "status": "ACTIVE",
+                "sortPriority": 3,
+                "lastPriceTraded": 80
+              },
+              "handicap": 0
+            }
+          ],
+          "state": {
+            "crossMatching": true,
+            "numberOfWinners": 1,
+            "inplay": true,
+            "version": 5840367292,
+            "betDelay": 5,
+            "lastMatchTime": "2024-04-05T16:15:08.463Z",
+            "status": "OPEN",
+            "numberOfActiveRunners": 3,
+            "totalAvailable": 1341544.72276946,
+            "numberOfRunners": 3,
+            "runnersVoidable": false,
+            "totalMatched": 1872.15690833039,
+            "bspReconciled": false,
+            "complete": true
+          },
+          "description": {
+            "priceLadderDescription": {
+              "type": "CLASSIC"
+            },
+            "marketTime": "2024-04-05T14:00:00.000Z",
+            "bspMarket": false,
+            "persistenceEnabled": true,
+            "marketType": "MATCH_ODDS_LO_TIE",
+            "suspendTime": "2024-04-05T14:00:00.000Z",
+            "turnInPlayEnabled": true,
+            "marketName": "Match Odds Including Tie",
+            "bettingType": "ODDS"
+          },
+          "isMarketDataVirtual": true,
+          "rates": {
+            "discountAllowed": true,
+            "marketBaseRate": 5
+          },
+          "market": {
+            "marketTime": "2024-04-05T14:00:00.000Z",
+            "associatedMarkets": [],
+            "numberOfRunners": 3,
+            "numberOfWinners": 1,
+            "canTurnInPlay": true,
+            "marketName": "Match Odds Including Tie",
+            "marketStatus": "OPEN",
+            "productType": "EXCHANGE",
+            "upperLevelEventId": 28127348,
+            "competitionId": 101480,
+            "inplay": true,
+            "topLevelEventId": 28127348,
+            "eventId": 33152500,
+            "eventTypeId": 4,
+            "totalAvailable": 69.4815,
+            "totalMatched": 1836.749769,
+            "numberOfActiveRunners": 3,
+            "marketId": "1.226888548",
+            "numberOfUpperLevels": 1,
+            "marketType": "MATCH_ODDS_LO_TIE",
+            "marketLevels": [
+              "AVB_EVENT"
+            ],
+            "key": "MARKET:1.226888548"
+          }
+        },
+        {
+          "state": {
+            "crossMatching": false,
+            "version": 5840367308,
+            "inplay": true,
+            "numberOfWinners": 1,
+            "betDelay": 5,
+            "totalAvailable": 787.898231268795,
+            "numberOfActiveRunners": 16,
+            "status": "OPEN",
+            "lastMatchTime": "2024-04-05T16:14:24.711Z",
+            "totalMatched": 2912.66630224881,
+            "runnersVoidable": false,
+            "numberOfRunners": 25,
+            "bspReconciled": false,
+            "complete": false
+          },
+          "runners": [
+            {
+              "description": {
+                "runnerName": "Abhishek Sharma",
+                "metadata": {
+                  "runnerId": "13878968"
+                }
+              },
+              "exchange": {
+                "availableToLay": [
+                  {
+                    "size": 2.53,
+                    "price": 12
+                  }
+                ],
+                "availableToBack": [
+                  {
+                    "size": 136.44,
+                    "price": 6
+                  },
+                  {
+                    "price": 1.1,
+                    "size": 31.06
+                  }
+                ]
+              },
+              "state": {
+                "totalMatched": 0,
+                "sortPriority": 1,
+                "status": "ACTIVE",
+                "lastPriceTraded": 6
+              },
+              "selectionId": 13878968,
+              "handicap": 0
+            },
+            {
+              "state": {
+                "status": "ACTIVE",
+                "sortPriority": 2,
+                "lastPriceTraded": 4.8,
+                "totalMatched": 0
+              },
+              "selectionId": 12091988,
+              "handicap": 0,
+              "description": {
+                "runnerName": "Aiden Markram",
+                "metadata": {
+                  "runnerId": "12091988"
+                }
+              },
+              "exchange": {
+                "availableToBack": [
+                  {
+                    "price": 3.15,
+                    "size": 31.13
+                  },
+                  {
+                    "size": 22.74,
+                    "price": 1.1
+                  }
+                ]
+              }
+            },
+            {
+              "handicap": 0,
+              "state": {
+                "lastPriceTraded": 3.2,
+                "status": "ACTIVE",
+                "sortPriority": 3,
+                "totalMatched": 0
+              },
+              "selectionId": 12120273,
+              "exchange": {
+                "availableToLay": [
+                  {
+                    "price": 12,
+                    "size": 3.79
+                  }
+                ],
+                "availableToBack": [
+                  {
+                    "price": 4.5,
+                    "size": 26.67
+                  },
+                  {
+                    "size": 15.16,
+                    "price": 1.5
+                  }
+                ]
+              },
+              "description": {
+                "runnerName": "Heinrich Klaasen",
+                "metadata": {
+                  "runnerId": "12120273"
+                }
+              }
+            },
+            {
+              "selectionId": 28010553,
+              "state": {
+                "status": "ACTIVE",
+                "sortPriority": 4,
+                "lastPriceTraded": 8.2,
+                "totalMatched": 0
+              },
+              "handicap": 0,
+              "description": {
+                "metadata": {
+                  "runnerId": "28010553"
+                },
+                "runnerName": "Abdul Samad"
+              },
+              "exchange": {
+                "availableToBack": [
+                  {
+                    "size": 29.06,
+                    "price": 2
+                  },
+                  {
+                    "size": 17.69,
+                    "price": 1.1
+                  }
+                ]
+              }
+            },
+            {
+              "exchange": {
+                "availableToBack": [
+                  {
+                    "size": 45.36,
+                    "price": 9
+                  },
+                  {
+                    "price": 1.1,
+                    "size": 27.79
+                  }
+                ]
+              },
+              "description": {
+                "metadata": {
+                  "runnerId": "55988179"
+                },
+                "runnerName": "Nitish Kumar Reddy"
+              },
+              "handicap": 0,
+              "selectionId": 55988179,
+              "state": {
+                "totalMatched": 0,
+                "lastPriceTraded": 13,
+                "sortPriority": 5,
+                "status": "ACTIVE"
+              }
+            },
+            {
+              "state": {
+                "status": "ACTIVE",
+                "sortPriority": 6,
+                "totalMatched": 0
+              },
+              "selectionId": 38932346,
+              "handicap": 0,
+              "description": {
+                "runnerName": "Shahbaz Ahmed",
+                "metadata": {
+                  "runnerId": "38932346"
+                }
+              },
+              "exchange": {
+                "availableToBack": [
+                  {
+                    "price": 5,
+                    "size": 26.35
+                  },
+                  {
+                    "size": 27.79,
+                    "price": 1.1
+                  }
+                ]
+              }
+            },
+            {
+              "handicap": 0,
+              "selectionId": 5875428,
+              "state": {
+                "sortPriority": 7,
+                "status": "ACTIVE",
+                "lastPriceTraded": 50,
+                "totalMatched": 0
+              },
+              "exchange": {
+                "availableToBack": [
+                  {
+                    "size": 26.35,
+                    "price": 5
+                  },
+                  {
+                    "size": 27.79,
+                    "price": 1.1
+                  }
+                ]
+              },
+              "description": {
+                "metadata": {
+                  "runnerId": "5875428"
+                },
+                "runnerName": "Pat Cummins"
+              }
+            },
+            {
+              "exchange": {
+                "availableToBack": [
+                  {
+                    "price": 1.1,
+                    "size": 27.79
+                  }
+                ]
+              },
+              "description": {
+                "metadata": {
+                  "runnerId": "7185516"
+                },
+                "runnerName": "Jaydev Unadkat"
+              },
+              "handicap": 0,
+              "state": {
+                "sortPriority": 8,
+                "status": "ACTIVE",
+                "totalMatched": 0
+              },
+              "selectionId": 7185516
+            },
+            {
+              "handicap": 0,
+              "selectionId": 6264926,
+              "state": {
+                "totalMatched": 0,
+                "sortPriority": 9,
+                "status": "ACTIVE"
+              },
+              "exchange": {
+                "availableToBack": [
+                  {
+                    "price": 1.1,
+                    "size": 27.79
+                  }
+                ]
+              },
+              "description": {
+                "runnerName": "Bhuvneshwar Kumar",
+                "metadata": {
+                  "runnerId": "6264926"
+                }
+              }
+            },
+            {
+              "selectionId": 18076661,
+              "state": {
+                "status": "ACTIVE",
+                "sortPriority": 10,
+                "totalMatched": 0
+              },
+              "handicap": 0,
+              "description": {
+                "metadata": {
+                  "runnerId": "18076661"
+                },
+                "runnerName": "Mayank Markande"
+              },
+              "exchange": {
+                "availableToBack": [
+                  {
+                    "size": 27.79,
+                    "price": 1.1
+                  }
+                ]
+              }
+            },
+            {
+              "state": {
+                "totalMatched": 0,
+                "sortPriority": 11,
+                "status": "ACTIVE"
+              },
+              "selectionId": 11695468,
+              "handicap": 0,
+              "description": {
+                "metadata": {
+                  "runnerId": "11695468"
+                },
+                "runnerName": "T Natarajan"
+              },
+              "exchange": {
+                "availableToBack": [
+                  {
+                    "size": 27.79,
+                    "price": 1.1
+                  }
+                ]
+              }
+            },
+            {
+              "exchange": {
+                "availableToBack": [
+                  {
+                    "size": 27.79,
+                    "price": 1.1
+                  }
+                ]
+              },
+              "description": {
+                "runnerName": "Travis Head",
+                "metadata": {
+                  "runnerId": "6970145"
+                }
+              },
+              "handicap": 0,
+              "selectionId": 6970145,
+              "state": {
+                "lastPriceTraded": 3.5,
+                "sortPriority": 12,
+                "status": "ACTIVE",
+                "totalMatched": 0
+              }
+            },
+            {
+              "handicap": 0,
+              "selectionId": 41194333,
+              "state": {
+                "totalMatched": 0,
+                "status": "ACTIVE",
+                "sortPriority": 13
+              },
+              "exchange": {
+                "availableToBack": [
+                  {
+                    "price": 1.1,
+                    "size": 27.79
+                  }
+                ]
+              },
+              "description": {
+                "runnerName": "Umran Malik",
+                "metadata": {
+                  "runnerId": "41194333"
+                }
+              }
+            },
+            {
+              "description": {
+                "runnerName": "Washington Sundar",
+                "metadata": {
+                  "runnerId": "11661386"
+                }
+              },
+              "exchange": {
+                "availableToBack": [
+                  {
+                    "price": 1.1,
+                    "size": 27.79
+                  }
+                ]
+              },
+              "state": {
+                "sortPriority": 14,
+                "status": "ACTIVE",
+                "totalMatched": 0
+              },
+              "selectionId": 11661386,
+              "handicap": 0
+            },
+            {
+              "exchange": {
+                "availableToBack": [
+                  {
+                    "price": 1.1,
+                    "size": 27.79
+                  }
+                ]
+              },
+              "description": {
+                "metadata": {
+                  "runnerId": "12532418"
+                },
+                "runnerName": "Glenn Phillips"
+              },
+              "handicap": 0,
+              "state": {
+                "lastPriceTraded": 8,
+                "sortPriority": 15,
+                "status": "ACTIVE",
+                "totalMatched": 0
+              },
+              "selectionId": 12532418
+            },
+            {
+              "handicap": 0,
+              "selectionId": 12855434,
+              "state": {
+                "status": "ACTIVE",
+                "sortPriority": 16,
+                "lastPriceTraded": 5.3,
+                "totalMatched": 0
+              },
+              "exchange": {
+                "availableToBack": [
+                  {
+                    "price": 1.1,
+                    "size": 29.96
+                  }
+                ]
+              },
+              "description": {
+                "metadata": {
+                  "runnerId": "12855434"
+                },
+                "runnerName": "Rahul Tripathi"
+              }
+            },
+            {
+              "description": {
+                "runnerName": "Akash Singh",
+                "metadata": {
+                  "runnerId": "27579132"
+                }
+              },
+              "exchange": [],
+              "state": {
+                "removalDate": "2024-04-05T13:47:04.000Z",
+                "status": "REMOVED",
+                "sortPriority": 17
+              },
+              "selectionId": 27579132,
+              "handicap": 0
+            },
+            {
+              "exchange": [],
+              "description": {
+                "runnerName": "Anmolpreet Singh",
+                "metadata": {
+                  "runnerId": "23271279"
+                }
+              },
+              "handicap": 0,
+              "selectionId": 23271279,
+              "state": {
+                "status": "REMOVED",
+                "sortPriority": 18,
+                "removalDate": "2024-04-05T13:47:04.000Z"
+              }
+            },
+            {
+              "exchange": [],
+              "description": {
+                "runnerName": "Fazalhaq Farooqi",
+                "metadata": {
+                  "runnerId": "38841879"
+                }
+              },
+              "handicap": 0,
+              "state": {
+                "status": "REMOVED",
+                "sortPriority": 19,
+                "removalDate": "2024-04-05T13:47:05.000Z"
+              },
+              "selectionId": 38841879
+            },
+            {
+              "handicap": 0,
+              "selectionId": 5461837,
+              "state": {
+                "sortPriority": 20,
+                "status": "REMOVED",
+                "removalDate": "2024-04-05T13:47:03.000Z"
+              },
+              "exchange": [],
+              "description": {
+                "runnerName": "Mayank Agarwal",
+                "metadata": {
+                  "runnerId": "5461837"
+                }
+              }
+            },
+            {
+              "handicap": 0,
+              "selectionId": 26784929,
+              "state": {
+                "sortPriority": 21,
+                "status": "REMOVED",
+                "removalDate": "2024-04-05T13:47:06.000Z"
+              },
+              "exchange": [],
+              "description": {
+                "runnerName": "Marco Jansen",
+                "metadata": {
+                  "runnerId": "26784929"
+                }
+              }
+            },
+            {
+              "exchange": [],
+              "description": {
+                "metadata": {
+                  "runnerId": "67814964"
+                },
+                "runnerName": "Jhathavedh Subramanyan"
+              },
+              "handicap": 0,
+              "state": {
+                "sortPriority": 22,
+                "status": "REMOVED",
+                "removalDate": "2024-04-05T13:47:07.000Z"
+              },
+              "selectionId": 67814964
+            },
+            {
+              "description": {
+                "runnerName": "Sanvir Singh",
+                "metadata": {
+                  "runnerId": "52884916"
+                }
+              },
+              "exchange": [],
+              "selectionId": 52884916,
+              "state": {
+                "removalDate": "2024-04-05T13:47:06.000Z",
+                "status": "REMOVED",
+                "sortPriority": 23
+              },
+              "handicap": 0
+            },
+            {
+              "exchange": [],
+              "description": {
+                "runnerName": "Wanindu Hasaranga",
+                "metadata": {
+                  "runnerId": "13450320"
+                }
+              },
+              "handicap": 0,
+              "state": {
+                "status": "REMOVED",
+                "sortPriority": 24,
+                "removalDate": "2024-04-05T13:47:05.000Z"
+              },
+              "selectionId": 13450320
+            },
+            {
+              "exchange": [],
+              "description": {
+                "runnerName": "Upendra Yadav",
+                "metadata": {
+                  "runnerId": "54315411"
+                }
+              },
+              "handicap": 0,
+              "state": {
+                "status": "REMOVED",
+                "sortPriority": 25,
+                "removalDate": "2024-04-05T13:47:07.000Z"
+              },
+              "selectionId": 54315411
+            }
+          ],
+          "marketId": "1.226888550",
+          "isMarketDataDelayed": true,
+          "rates": {
+            "marketBaseRate": 5,
+            "discountAllowed": true
+          },
+          "isMarketDataVirtual": false,
+          "description": {
+            "marketType": "TEAM_A_TOP_BATTER",
+            "persistenceEnabled": true,
+            "suspendTime": "2024-04-05T14:00:00.000Z",
+            "turnInPlayEnabled": true,
+            "marketName": "Top Sunrisers Hyderabad Batter",
+            "bettingType": "ODDS",
+            "priceLadderDescription": {
+              "type": "CLASSIC"
+            },
+            "marketTime": "2024-04-05T14:00:00.000Z",
+            "bspMarket": false
+          },
+          "market": {
+            "numberOfRunners": 25,
+            "canTurnInPlay": true,
+            "numberOfWinners": 1,
+            "marketStatus": "OPEN",
+            "marketName": "Top Sunrisers Hyderabad Batter",
+            "inplay": true,
+            "productType": "EXCHANGE",
+            "competitionId": 101480,
+            "upperLevelEventId": 28127348,
+            "associatedMarkets": [],
+            "marketTime": "2024-04-05T14:00:00.000Z",
+            "marketId": "1.226888550",
+            "numberOfUpperLevels": 1,
+            "key": "MARKET:1.226888550",
+            "marketLevels": [
+              "AVB_EVENT"
+            ],
+            "marketType": "TEAM_A_TOP_BATTER",
+            "topLevelEventId": 28127348,
+            "eventTypeId": 4,
+            "eventId": 33152500,
+            "totalAvailable": 1274.6697,
+            "numberOfActiveRunners": 16,
+            "totalMatched": 2850.939642
+          }
+        },
+        {
+          "isMarketDataVirtual": false,
+          "rates": {
+            "discountAllowed": true,
+            "marketBaseRate": 5
+          },
+          "description": {
+            "marketTime": "2024-04-05T14:00:00.000Z",
+            "bspMarket": false,
+            "priceLadderDescription": {
+              "type": "LINE_RANGE"
+            },
+            "marketName": "2nd Innings 6 Overs Line",
+            "turnInPlayEnabled": true,
+            "bettingType": "LINE",
+            "marketType": "2_INNING_6_OVR_LINE",
+            "persistenceEnabled": true,
+            "suspendTime": "2024-04-05T14:00:00.000Z"
+          },
+          "state": {
+            "bspReconciled": false,
+            "complete": true,
+            "status": "OPEN",
+            "lastMatchTime": "2024-04-05T16:15:25.190Z",
+            "totalAvailable": 93401.6259939963,
+            "numberOfActiveRunners": 1,
+            "numberOfRunners": 1,
+            "totalMatched": 1083436.13236709,
+            "runnersVoidable": false,
+            "numberOfWinners": 0,
+            "version": 5840367246,
+            "inplay": true,
+            "betDelay": 3,
+            "crossMatching": false
+          },
+          "marketId": "1.226888618",
+          "runners": [
+            {
+              "description": {
+                "metadata": {
+                  "runnerId": "15316"
+                },
+                "runnerName": "Total Runs"
+              },
+              "exchange": {
+                "availableToBack": [
+                  {
+                    "size": 6860.36,
+                    "price": 76.5
+                  },
+                  {
+                    "price": 75.5,
+                    "size": 22815.59
+                  },
+                  {
+                    "size": 16212.25,
+                    "price": 74.5
+                  }
+                ],
+                "availableToLay": [
+                  {
+                    "price": 77.5,
+                    "size": 26789.78
+                  },
+                  {
+                    "size": 1789.96,
+                    "price": 78.5
+                  },
+                  {
+                    "size": 680.35,
+                    "price": 82.5
+                  }
+                ]
+              },
+              "state": {
+                "totalMatched": 0,
+                "sortPriority": 1,
+                "status": "ACTIVE",
+                "lastPriceTraded": 76.5
+              },
+              "selectionId": 15316,
+              "handicap": 0
+            }
+          ],
+          "lineRangeInfo": {
+            "minUnitValue": 0.5,
+            "maxUnitValue": 999.5,
+            "marketUnit": "Runs",
+            "interval": 1
+          },
+          "isMarketDataDelayed": true,
+          "market": {
+            "eventId": 33152500,
+            "eventTypeId": 4,
+            "topLevelEventId": 28127348,
+            "totalMatched": 763184.341212,
+            "numberOfActiveRunners": 1,
+            "totalAvailable": 45149.0787,
+            "marketType": "2_INNING_6_OVR_LINE",
+            "marketLevels": [
+              "AVB_EVENT"
+            ],
+            "key": "MARKET:1.226888618",
+            "marketId": "1.226888618",
+            "numberOfUpperLevels": 1,
+            "marketTime": "2024-04-05T14:00:00.000Z",
+            "associatedMarkets": [],
+            "numberOfWinners": 0,
+            "canTurnInPlay": true,
+            "numberOfRunners": 1,
+            "productType": "EXCHANGE",
+            "competitionId": 101480,
+            "upperLevelEventId": 28127348,
+            "inplay": true,
+            "marketName": "2nd Innings 6 Overs Line",
+            "marketStatus": "OPEN"
+          }
+        },
+        {
+          "description": {
+            "suspendTime": "2024-04-05T14:00:00.000Z",
+            "marketType": "2_INNING_8_OVR_LINE",
+            "persistenceEnabled": true,
+            "bettingType": "LINE",
+            "marketName": "2nd Innings 8 Overs Line",
+            "turnInPlayEnabled": true,
+            "priceLadderDescription": {
+              "type": "LINE_RANGE"
+            },
+            "bspMarket": false,
+            "marketTime": "2024-04-05T14:00:00.000Z"
+          },
+          "rates": {
+            "discountAllowed": true,
+            "marketBaseRate": 5
+          },
+          "isMarketDataVirtual": false,
+          "isMarketDataDelayed": true,
+          "lineRangeInfo": {
+            "marketUnit": "Runs",
+            "interval": 1,
+            "minUnitValue": 0.5,
+            "maxUnitValue": 999.5
+          },
+          "runners": [
+            {
+              "selectionId": 15316,
+              "state": {
+                "sortPriority": 1,
+                "status": "ACTIVE",
+                "lastPriceTraded": 92.5,
+                "totalMatched": 0
+              },
+              "handicap": 0,
+              "description": {
+                "metadata": {
+                  "runnerId": "15316"
+                },
+                "runnerName": "Total Runs"
+              },
+              "exchange": {
+                "availableToLay": [
+                  {
+                    "size": 110.6,
+                    "price": 96.5
+                  },
+                  {
+                    "price": 97.5,
+                    "size": 28.06
+                  },
+                  {
+                    "size": 10.99,
+                    "price": 104.5
+                  }
+                ],
+                "availableToBack": [
+                  {
+                    "size": 119.95,
+                    "price": 79.5
+                  },
+                  {
+                    "price": 74.5,
+                    "size": 11.8
+                  }
+                ]
+              }
+            }
+          ],
+          "marketId": "1.226888619",
+          "state": {
+            "numberOfRunners": 1,
+            "totalMatched": 206.02421629283,
+            "runnersVoidable": false,
+            "status": "OPEN",
+            "lastMatchTime": "2024-04-05T16:12:42.333Z",
+            "totalAvailable": 281.389363763221,
+            "numberOfActiveRunners": 1,
+            "complete": true,
+            "bspReconciled": false,
+            "crossMatching": false,
+            "betDelay": 3,
+            "numberOfWinners": 0,
+            "version": 5840367288,
+            "inplay": true
+          },
+          "market": {
+            "marketTime": "2024-04-05T14:00:00.000Z",
+            "associatedMarkets": [],
+            "numberOfWinners": 0,
+            "canTurnInPlay": true,
+            "numberOfRunners": 1,
+            "upperLevelEventId": 28127348,
+            "productType": "EXCHANGE",
+            "competitionId": 101480,
+            "inplay": true,
+            "marketName": "2nd Innings 8 Overs Line",
+            "marketStatus": "OPEN",
+            "eventId": 33152500,
+            "eventTypeId": 4,
+            "topLevelEventId": 28127348,
+            "totalMatched": 143.207688,
+            "numberOfActiveRunners": 1,
+            "totalAvailable": 31.5825,
+            "marketType": "2_INNING_8_OVR_LINE",
+            "marketLevels": [
+              "AVB_EVENT"
+            ],
+            "key": "MARKET:1.226888619",
+            "numberOfUpperLevels": 1,
+            "marketId": "1.226888619"
+          }
+        },
+        {
+          "description": {
+            "marketName": "2nd Innings 10 Overs Line",
+            "turnInPlayEnabled": true,
+            "bettingType": "LINE",
+            "persistenceEnabled": true,
+            "marketType": "2_INNING_10_OVR_LINE",
+            "suspendTime": "2024-04-05T14:00:00.000Z",
+            "marketTime": "2024-04-05T14:00:00.000Z",
+            "bspMarket": false,
+            "priceLadderDescription": {
+              "type": "LINE_RANGE"
+            }
+          },
+          "rates": {
+            "discountAllowed": true,
+            "marketBaseRate": 5
+          },
+          "isMarketDataVirtual": false,
+          "isMarketDataDelayed": true,
+          "lineRangeInfo": {
+            "marketUnit": "Runs",
+            "interval": 1,
+            "maxUnitValue": 999.5,
+            "minUnitValue": 0.5
+          },
+          "runners": [
+            {
+              "state": {
+                "totalMatched": 0,
+                "lastPriceTraded": 108.5,
+                "sortPriority": 1,
+                "status": "ACTIVE"
+              },
+              "selectionId": 15316,
+              "handicap": 0,
+              "description": {
+                "runnerName": "Total Runs",
+                "metadata": {
+                  "runnerId": "15316"
+                }
+              },
+              "exchange": {
+                "availableToLay": [
+                  {
+                    "price": 108.5,
+                    "size": 65.67
+                  },
+                  {
+                    "price": 109.5,
+                    "size": 102.75
+                  }
+                ],
+                "availableToBack": [
+                  {
+                    "price": 105.5,
+                    "size": 25.27
+                  },
+                  {
+                    "price": 104.5,
+                    "size": 51.73
+                  },
+                  {
+                    "price": 77.5,
+                    "size": 1091.28
+                  }
+                ]
+              }
+            }
+          ],
+          "marketId": "1.226888620",
+          "state": {
+            "betDelay": 3,
+            "inplay": true,
+            "version": 5840367228,
+            "numberOfWinners": 0,
+            "crossMatching": false,
+            "complete": true,
+            "bspReconciled": false,
+            "runnersVoidable": false,
+            "totalMatched": 2590.41817776717,
+            "numberOfRunners": 1,
+            "numberOfActiveRunners": 1,
+            "totalAvailable": 1337.39022229305,
+            "lastMatchTime": "2024-04-05T16:15:22.980Z",
+            "status": "OPEN"
+          },
+          "market": {
+            "associatedMarkets": [],
+            "marketTime": "2024-04-05T14:00:00.000Z",
+            "numberOfRunners": 1,
+            "canTurnInPlay": true,
+            "numberOfWinners": 0,
+            "marketName": "2nd Innings 10 Overs Line",
+            "marketStatus": "OPEN",
+            "competitionId": 101480,
+            "productType": "EXCHANGE",
+            "upperLevelEventId": 28127348,
+            "inplay": true,
+            "topLevelEventId": 28127348,
+            "eventId": 33152500,
+            "eventTypeId": 4,
+            "totalAvailable": 601.3308,
+            "numberOfActiveRunners": 1,
+            "totalMatched": 1934.592354,
+            "numberOfUpperLevels": 1,
+            "marketId": "1.226888620",
+            "marketLevels": [
+              "AVB_EVENT"
+            ],
+            "key": "MARKET:1.226888620",
+            "marketType": "2_INNING_10_OVR_LINE"
+          }
+        },
+        {
+          "state": {
+            "crossMatching": false,
+            "numberOfWinners": 0,
+            "inplay": true,
+            "version": 5840367231,
+            "betDelay": 3,
+            "lastMatchTime": "2024-04-05T16:07:00.832Z",
+            "status": "OPEN",
+            "numberOfActiveRunners": 1,
+            "totalAvailable": 40.7129191861994,
+            "numberOfRunners": 1,
+            "runnersVoidable": false,
+            "totalMatched": 29.5706103838569,
+            "bspReconciled": false,
+            "complete": true
+          },
+          "lineRangeInfo": {
+            "minUnitValue": 0.5,
+            "maxUnitValue": 999.5,
+            "interval": 1,
+            "marketUnit": "Runs"
+          },
+          "isMarketDataDelayed": true,
+          "marketId": "1.226888621",
+          "runners": [
+            {
+              "description": {
+                "metadata": {
+                  "runnerId": "15316"
+                },
+                "runnerName": "Total Runs"
+              },
+              "exchange": {
+                "availableToBack": [
+                  {
+                    "size": 24.35,
+                    "price": 95.5
+                  }
+                ],
+                "availableToLay": [
+                  {
+                    "price": 138.5,
+                    "size": 16.37
+                  }
+                ]
+              },
+              "selectionId": 15316,
+              "state": {
+                "totalMatched": 0,
+                "lastPriceTraded": 94.5,
+                "sortPriority": 1,
+                "status": "ACTIVE"
+              },
+              "handicap": 0
+            }
+          ],
+          "description": {
+            "bspMarket": false,
+            "marketTime": "2024-04-05T14:00:00.000Z",
+            "priceLadderDescription": {
+              "type": "LINE_RANGE"
+            },
+            "bettingType": "LINE",
+            "marketName": "2nd Innings 12 Overs Line",
+            "turnInPlayEnabled": true,
+            "suspendTime": "2024-04-05T14:00:00.000Z",
+            "persistenceEnabled": true,
+            "marketType": "2_INNING_12_OVR_LINE"
+          },
+          "isMarketDataVirtual": false,
+          "rates": {
+            "marketBaseRate": 5,
+            "discountAllowed": true
+          },
+          "market": {
+            "numberOfWinners": 0,
+            "canTurnInPlay": true,
+            "numberOfRunners": 1,
+            "inplay": true,
+            "productType": "EXCHANGE",
+            "upperLevelEventId": 28127348,
+            "competitionId": 101480,
+            "marketStatus": "OPEN",
+            "marketName": "2nd Innings 12 Overs Line",
+            "marketTime": "2024-04-05T14:00:00.000Z",
+            "associatedMarkets": [],
+            "marketType": "2_INNING_12_OVR_LINE",
+            "marketLevels": [
+              "AVB_EVENT"
+            ],
+            "key": "MARKET:1.226888621",
+            "marketId": "1.226888621",
+            "numberOfUpperLevels": 1,
+            "eventTypeId": 4,
+            "eventId": 33152500,
+            "topLevelEventId": 28127348,
+            "totalMatched": 29.611752,
+            "numberOfActiveRunners": 1,
+            "totalAvailable": 49.2687
+          }
+        },
+        {
+          "description": {
+            "priceLadderDescription": {
+              "type": "LINE_RANGE"
+            },
+            "marketTime": "2024-04-05T14:00:00.000Z",
+            "bspMarket": false,
+            "marketType": "2_INNING_15_OVR_LINE",
+            "persistenceEnabled": true,
+            "suspendTime": "2024-04-05T14:00:00.000Z",
+            "marketName": "2nd Innings 15 Overs Line",
+            "turnInPlayEnabled": true,
+            "bettingType": "LINE"
+          },
+          "rates": {
+            "marketBaseRate": 5,
+            "discountAllowed": true
+          },
+          "isMarketDataVirtual": false,
+          "state": {
+            "betDelay": 3,
+            "inplay": true,
+            "version": 5840367278,
+            "numberOfWinners": 0,
+            "crossMatching": false,
+            "complete": true,
+            "bspReconciled": false,
+            "runnersVoidable": false,
+            "totalMatched": 6.26396090456448,
+            "numberOfRunners": 1,
+            "numberOfActiveRunners": 1,
+            "totalAvailable": 6097.06347381202,
+            "lastMatchTime": "2024-04-05T16:12:53.649Z",
+            "status": "OPEN"
+          },
+          "isMarketDataDelayed": true,
+          "lineRangeInfo": {
+            "maxUnitValue": 999.5,
+            "minUnitValue": 0.5,
+            "marketUnit": "Runs",
+            "interval": 1
+          },
+          "runners": [
+            {
+              "state": {
+                "totalMatched": 0,
+                "lastPriceTraded": 124.5,
+                "status": "ACTIVE",
+                "sortPriority": 1
+              },
+              "selectionId": 15316,
+              "handicap": 0,
+              "description": {
+                "metadata": {
+                  "runnerId": "15316"
+                },
+                "runnerName": "Total Runs"
+              },
+              "exchange": {
+                "availableToBack": [
+                  {
+                    "size": 7.72,
+                    "price": 110.5
+                  }
+                ],
+                "availableToLay": [
+                  {
+                    "size": 1626.29,
+                    "price": 165.5
+                  },
+                  {
+                    "price": 166.5,
+                    "size": 2005.75
+                  },
+                  {
+                    "size": 2367.75,
+                    "price": 167.5
+                  }
+                ]
+              }
+            }
+          ],
+          "marketId": "1.226888622",
+          "market": {
+            "numberOfUpperLevels": 1,
+            "marketId": "1.226888622",
+            "key": "MARKET:1.226888622",
+            "marketLevels": [
+              "AVB_EVENT"
+            ],
+            "marketType": "2_INNING_15_OVR_LINE",
+            "totalAvailable": 6015.8346,
+            "numberOfActiveRunners": 1,
+            "totalMatched": 3.688836,
+            "topLevelEventId": 28127348,
+            "eventId": 33152500,
+            "eventTypeId": 4,
+            "marketName": "2nd Innings 15 Overs Line",
+            "marketStatus": "OPEN",
+            "productType": "EXCHANGE",
+            "competitionId": 101480,
+            "upperLevelEventId": 28127348,
+            "inplay": true,
+            "numberOfRunners": 1,
+            "canTurnInPlay": true,
+            "numberOfWinners": 0,
+            "associatedMarkets": [],
+            "marketTime": "2024-04-05T14:00:00.000Z"
+          }
+        },
+        {
+          "marketId": "1.226888623",
+          "runners": [
+            {
+              "handicap": 0,
+              "state": {
+                "lastPriceTraded": 159.5,
+                "sortPriority": 1,
+                "status": "ACTIVE",
+                "totalMatched": 0
+              },
+              "selectionId": 15316,
+              "exchange": {
+                "availableToBack": [
+                  {
+                    "price": 130.5,
+                    "size": 13.91
+                  }
+                ],
+                "availableToLay": [
+                  {
+                    "price": 167.5,
+                    "size": 145.16
+                  },
+                  {
+                    "size": 105.62,
+                    "price": 172.5
+                  }
+                ]
+              },
+              "description": {
+                "metadata": {
+                  "runnerId": "15316"
+                },
+                "runnerName": "Total Runs"
+              }
+            }
+          ],
+          "lineRangeInfo": {
+            "marketUnit": "Runs",
+            "interval": 1,
+            "minUnitValue": 0.5,
+            "maxUnitValue": 999.5
+          },
+          "isMarketDataDelayed": true,
+          "state": {
+            "lastMatchTime": "2024-04-05T16:05:47.062Z",
+            "status": "OPEN",
+            "numberOfActiveRunners": 1,
+            "totalAvailable": 264.688265415495,
+            "numberOfRunners": 1,
+            "runnersVoidable": false,
+            "totalMatched": 6.64663132631572,
+            "bspReconciled": false,
+            "complete": true,
+            "crossMatching": false,
+            "numberOfWinners": 0,
+            "inplay": true,
+            "version": 5840367242,
+            "betDelay": 3
+          },
+          "isMarketDataVirtual": false,
+          "rates": {
+            "discountAllowed": true,
+            "marketBaseRate": 5
+          },
+          "description": {
+            "marketName": "2nd Innings 18 Overs Line",
+            "turnInPlayEnabled": true,
+            "bettingType": "LINE",
+            "marketType": "2_INNING_18_OVR_LINE",
+            "persistenceEnabled": true,
+            "suspendTime": "2024-04-05T14:00:00.000Z",
+            "marketTime": "2024-04-05T14:00:00.000Z",
+            "bspMarket": false,
+            "priceLadderDescription": {
+              "type": "LINE_RANGE"
+            }
+          },
+          "market": {
+            "eventId": 33152500,
+            "eventTypeId": 4,
+            "topLevelEventId": 28127348,
+            "numberOfActiveRunners": 1,
+            "totalMatched": 6.644958,
+            "totalAvailable": 186.9684,
+            "key": "MARKET:1.226888623",
+            "marketLevels": [
+              "AVB_EVENT"
+            ],
+            "marketType": "2_INNING_18_OVR_LINE",
+            "marketId": "1.226888623",
+            "numberOfUpperLevels": 1,
+            "associatedMarkets": [],
+            "marketTime": "2024-04-05T14:00:00.000Z",
+            "canTurnInPlay": true,
+            "numberOfWinners": 0,
+            "numberOfRunners": 1,
+            "productType": "EXCHANGE",
+            "upperLevelEventId": 28127348,
+            "competitionId": 101480,
+            "inplay": true,
+            "marketName": "2nd Innings 18 Overs Line",
+            "marketStatus": "OPEN"
+          }
+        },
+        {
+          "runners": [
+            {
+              "handicap": 0,
+              "state": {
+                "sortPriority": 1,
+                "status": "ACTIVE",
+                "lastPriceTraded": 167.5,
+                "totalMatched": 0
+              },
+              "selectionId": 15316,
+              "exchange": {
+                "availableToLay": [
+                  {
+                    "price": 168.5,
+                    "size": 167.73
+                  },
+                  {
+                    "size": 7.01,
+                    "price": 170.5
+                  }
+                ],
+                "availableToBack": [
+                  {
+                    "size": 632.68,
+                    "price": 165.5
+                  },
+                  {
+                    "price": 6.5,
+                    "size": 3292.26
+                  },
+                  {
+                    "price": 5.5,
+                    "size": 3949.87
+                  }
+                ]
+              },
+              "description": {
+                "runnerName": "Total Runs",
+                "metadata": {
+                  "runnerId": "15316"
+                }
+              }
+            }
+          ],
+          "marketId": "1.226888624",
+          "isMarketDataDelayed": true,
+          "lineRangeInfo": {
+            "interval": 1,
+            "marketUnit": "Runs",
+            "minUnitValue": 0.5,
+            "maxUnitValue": 999.5
+          },
+          "state": {
+            "crossMatching": false,
+            "numberOfWinners": 0,
+            "version": 5840367284,
+            "inplay": true,
+            "betDelay": 3,
+            "status": "OPEN",
+            "lastMatchTime": "2024-04-05T16:02:04.665Z",
+            "totalAvailable": 8049.54768166926,
+            "numberOfActiveRunners": 1,
+            "numberOfRunners": 1,
+            "totalMatched": 84.1376588103627,
+            "runnersVoidable": false,
+            "bspReconciled": false,
+            "complete": true
+          },
+          "rates": {
+            "marketBaseRate": 5,
+            "discountAllowed": true
+          },
+          "isMarketDataVirtual": false,
+          "description": {
+            "bettingType": "LINE",
+            "marketName": "2nd Innings 20 Overs Line",
+            "turnInPlayEnabled": true,
+            "suspendTime": "2024-04-05T14:00:00.000Z",
+            "marketType": "2_INNING_20_OVR_LINE",
+            "persistenceEnabled": true,
+            "bspMarket": false,
+            "marketTime": "2024-04-05T14:00:00.000Z",
+            "priceLadderDescription": {
+              "type": "LINE_RANGE"
+            }
+          },
+          "market": {
+            "marketId": "1.226888624",
+            "numberOfUpperLevels": 1,
+            "marketType": "2_INNING_20_OVR_LINE",
+            "key": "MARKET:1.226888624",
+            "marketLevels": [
+              "AVB_EVENT"
+            ],
+            "topLevelEventId": 28127348,
+            "eventTypeId": 4,
+            "eventId": 33152500,
+            "totalAvailable": 8049.7476,
+            "totalMatched": 84.287376,
+            "numberOfActiveRunners": 1,
+            "numberOfRunners": 1,
+            "numberOfWinners": 0,
+            "canTurnInPlay": true,
+            "marketStatus": "OPEN",
+            "marketName": "2nd Innings 20 Overs Line",
+            "inplay": true,
+            "upperLevelEventId": 28127348,
+            "productType": "EXCHANGE",
+            "competitionId": 101480,
+            "marketTime": "2024-04-05T14:00:00.000Z",
+            "associatedMarkets": []
+          }
+        },
+        {
+          "description": {
+            "suspendTime": "2024-04-05T14:00:00.000Z",
+            "marketType": "TOTAL_SIXES",
+            "persistenceEnabled": true,
+            "bettingType": "ODDS",
+            "marketName": "Total Sixes",
+            "turnInPlayEnabled": true,
+            "priceLadderDescription": {
+              "type": "CLASSIC"
+            },
+            "bspMarket": false,
+            "marketTime": "2024-04-05T14:00:00.000Z"
+          },
+          "rates": {
+            "discountAllowed": true,
+            "marketBaseRate": 5
+          },
+          "isMarketDataVirtual": true,
+          "isMarketDataDelayed": true,
+          "runners": [
+            {
+              "handicap": 0,
+              "selectionId": 18232703,
+              "state": {
+                "lastPriceTraded": 8.8,
+                "sortPriority": 1,
+                "status": "ACTIVE",
+                "totalMatched": 0
+              },
+              "exchange": {
+                "availableToBack": [
+                  {
+                    "price": 1.01,
+                    "size": 26.33
+                  }
+                ]
+              },
+              "description": {
+                "metadata": {
+                  "runnerId": "18232703"
+                },
+                "runnerName": "10 and Under"
+              }
+            },
+            {
+              "selectionId": 18232706,
+              "state": {
+                "sortPriority": 2,
+                "status": "ACTIVE",
+                "lastPriceTraded": 3.05,
+                "totalMatched": 0
+              },
+              "handicap": 0,
+              "description": {
+                "runnerName": "11-14",
+                "metadata": {
+                  "runnerId": "18232706"
+                }
+              },
+              "exchange": {
+                "availableToBack": [
+                  {
+                    "price": 1.01,
+                    "size": 26.33
+                  }
+                ]
+              }
+            },
+            {
+              "handicap": 0,
+              "selectionId": 18232707,
+              "state": {
+                "totalMatched": 0,
+                "status": "ACTIVE",
+                "sortPriority": 3
+              },
+              "exchange": {
+                "availableToBack": [
+                  {
+                    "size": 13.17,
+                    "price": 1.02
+                  }
+                ]
+              },
+              "description": {
+                "runnerName": "15 and Over",
+                "metadata": {
+                  "runnerId": "18232707"
+                }
+              }
+            }
+          ],
+          "marketId": "1.226888625",
+          "state": {
+            "bspReconciled": false,
+            "complete": true,
+            "lastMatchTime": "2024-04-05T16:02:32.756Z",
+            "status": "OPEN",
+            "numberOfActiveRunners": 3,
+            "totalAvailable": 65.8311620635748,
+            "numberOfRunners": 3,
+            "runnersVoidable": false,
+            "totalMatched": 75.2362193402379,
+            "numberOfWinners": 1,
+            "inplay": true,
+            "version": 5840367314,
+            "betDelay": 5,
+            "crossMatching": true
+          },
+          "market": {
+            "marketId": "1.226888625",
+            "numberOfUpperLevels": 1,
+            "key": "MARKET:1.226888625",
+            "marketLevels": [
+              "AVB_EVENT"
+            ],
+            "marketType": "TOTAL_SIXES",
+            "totalAvailable": 65.6916,
+            "numberOfActiveRunners": 3,
+            "totalMatched": 75.216882,
+            "topLevelEventId": 28127348,
+            "eventTypeId": 4,
+            "eventId": 33152500,
+            "marketStatus": "OPEN",
+            "marketName": "Total Sixes",
+            "inplay": true,
+            "productType": "EXCHANGE",
+            "competitionId": 101480,
+            "upperLevelEventId": 28127348,
+            "numberOfRunners": 3,
+            "canTurnInPlay": true,
+            "numberOfWinners": 1,
+            "associatedMarkets": [],
+            "marketTime": "2024-04-05T14:00:00.000Z"
+          }
+        },
+        {
+          "state": {
+            "status": "OPEN",
+            "lastMatchTime": "2024-04-05T16:14:09.389Z",
+            "totalAvailable": 52.6649296508598,
+            "numberOfActiveRunners": 3,
+            "numberOfRunners": 3,
+            "totalMatched": 23.3810243290796,
+            "runnersVoidable": false,
+            "bspReconciled": false,
+            "complete": true,
+            "crossMatching": true,
+            "numberOfWinners": 1,
+            "version": 5840367298,
+            "inplay": true,
+            "betDelay": 5
+          },
+          "runners": [
+            {
+              "exchange": {
+                "availableToBack": [
+                  {
+                    "price": 1.02,
+                    "size": 13.17
+                  }
+                ]
+              },
+              "description": {
+                "metadata": {
+                  "runnerId": "7671296"
+                },
+                "runnerName": "Sunrisers Hyderabad"
+              },
+              "handicap": 0,
+              "selectionId": 7671296,
+              "state": {
+                "totalMatched": 0,
+                "sortPriority": 1,
+                "status": "ACTIVE"
+              }
+            },
+            {
+              "exchange": {
+                "availableToBack": [
+                  {
+                    "size": 13.17,
+                    "price": 1.02
+                  }
+                ]
+              },
+              "description": {
+                "runnerName": "Chennai Super Kings",
+                "metadata": {
+                  "runnerId": "2954263"
+                }
+              },
+              "handicap": 0,
+              "selectionId": 2954263,
+              "state": {
+                "sortPriority": 2,
+                "status": "ACTIVE",
+                "totalMatched": 0
+              }
+            },
+            {
+              "exchange": {
+                "availableToBack": [
+                  {
+                    "price": 1.01,
+                    "size": 26.33
+                  }
+                ]
+              },
+              "description": {
+                "metadata": {
+                  "runnerId": "2312392"
+                },
+                "runnerName": "Tie"
+              },
+              "handicap": 0,
+              "selectionId": 2312392,
+              "state": {
+                "totalMatched": 0,
+                "lastPriceTraded": 1.12,
+                "status": "ACTIVE",
+                "sortPriority": 3
+              }
+            }
+          ],
+          "marketId": "1.226888626",
+          "isMarketDataDelayed": true,
+          "rates": {
+            "marketBaseRate": 5,
+            "discountAllowed": true
+          },
+          "isMarketDataVirtual": true,
+          "description": {
+            "bettingType": "ODDS",
+            "marketName": "Most Sixes",
+            "turnInPlayEnabled": true,
+            "suspendTime": "2024-04-05T14:00:00.000Z",
+            "marketType": "TOTAL_SIXES",
+            "persistenceEnabled": true,
+            "bspMarket": false,
+            "marketTime": "2024-04-05T14:00:00.000Z",
+            "priceLadderDescription": {
+              "type": "CLASSIC"
+            }
+          },
+          "market": {
+            "numberOfActiveRunners": 3,
+            "totalMatched": 0,
+            "totalAvailable": 53.0586,
+            "eventTypeId": 4,
+            "eventId": 33152500,
+            "topLevelEventId": 28127348,
+            "marketLevels": [
+              "AVB_EVENT"
+            ],
+            "key": "MARKET:1.226888626",
+            "marketType": "TOTAL_SIXES",
+            "numberOfUpperLevels": 1,
+            "marketId": "1.226888626",
+            "associatedMarkets": [],
+            "marketTime": "2024-04-05T14:00:00.000Z",
+            "inplay": true,
+            "productType": "EXCHANGE",
+            "competitionId": 101480,
+            "upperLevelEventId": 28127348,
+            "marketStatus": "OPEN",
+            "marketName": "Most Sixes",
+            "canTurnInPlay": true,
+            "numberOfWinners": 1,
+            "numberOfRunners": 3
+          }
+        },
+        {
+          "state": {
+            "totalMatched": 0,
+            "runnersVoidable": false,
+            "numberOfRunners": 2,
+            "totalAvailable": 0,
+            "crossMatching": false,
+            "numberOfActiveRunners": 2,
+            "status": "SUSPENDED",
+            "betDelay": 0,
+            "complete": true,
+            "version": 5840362232,
+            "inplay": false,
+            "numberOfWinners": 1,
+            "bspReconciled": false
+          },
+          "runners": [
+            {
+              "exchange": [],
+              "description": {
+                "runnerName": "Sunrisers Hyderabad",
+                "metadata": {
+                  "runnerId": "7671296"
+                }
+              },
+              "handicap": 0,
+              "selectionId": 7671296,
+              "state": {
+                "status": "ACTIVE",
+                "sortPriority": 1
+              }
+            },
+            {
+              "exchange": [],
+              "description": {
+                "metadata": {
+                  "runnerId": "2954263"
+                },
+                "runnerName": "Chennai Super Kings"
+              },
+              "handicap": 0,
+              "selectionId": 2954263,
+              "state": {
+                "sortPriority": 2,
+                "status": "ACTIVE"
+              }
+            }
+          ],
+          "marketId": "1.226888627",
+          "isMarketDataDelayed": true,
+          "rates": {
+            "discountAllowed": true,
+            "marketBaseRate": 5
+          },
+          "isMarketDataVirtual": false,
+          "description": {
+            "persistenceEnabled": true,
+            "marketType": "SUPER_OVER",
+            "suspendTime": "2024-04-05T14:00:00.000Z",
+            "marketName": "Super Over",
+            "turnInPlayEnabled": true,
+            "bettingType": "ODDS",
+            "priceLadderDescription": {
+              "type": "CLASSIC"
+            },
+            "marketTime": "2024-04-05T14:00:00.000Z",
+            "bspMarket": false
+          },
+          "market": {
+            "inplay": false,
+            "upperLevelEventId": 28127348,
+            "productType": "EXCHANGE",
+            "competitionId": 101480,
+            "marketStatus": "SUSPENDED",
+            "marketName": "Super Over",
+            "canTurnInPlay": true,
+            "numberOfWinners": 1,
+            "numberOfRunners": 2,
+            "associatedMarkets": [],
+            "marketTime": "2024-04-05T14:00:00.000Z",
+            "key": "MARKET:1.226888627",
+            "marketLevels": [
+              "AVB_EVENT"
+            ],
+            "marketType": "SUPER_OVER",
+            "marketId": "1.226888627",
+            "numberOfUpperLevels": 1,
+            "numberOfActiveRunners": 2,
+            "totalMatched": 0,
+            "totalAvailable": 0,
+            "eventTypeId": 4,
+            "eventId": 33152500,
+            "topLevelEventId": 28127348
+          }
+        }
+      ],
+      "markets_updated_at": "1712333786"
+    }
+  ]
+}
