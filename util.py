@@ -252,35 +252,50 @@ class BetsAPI():
         return None
     def getFancyOdds(self, event_key, sport_name='Cricket', variant='ex'):
         response = requests.get(f'https://api.b365api.com/v1/betfair/{variant}/event?token={self.API_KEY}&event_id={event_key}').json()
-        processed_Response = [ { 
-            "marketName" : market.get('description').get('marketName'),
-            "marketType" : market.get('description').get('marketType'),
-            "odds" : [
-                { 
-                "runnerName" : runner.get('description').get('runnerName'),
-                "exchange" : runner.get('exchange')
-                }
-                for runner in market.get('runners')
-                ]
-         } for market in response.get('results')[0].get('markets') ]
-        
-        return {
-            "fancy odds from Betfair API" : processed_Response,
-            "variant" : variant,
-            "sport name" : sport_name
-        }
+        if response.get('success') == 1:
+            processed_Response = [ { 
+                "marketName" : market.get('description').get('marketName'),
+                "marketType" : market.get('description').get('marketType'),
+                "odds" : [
+                    { 
+                    "runnerName" : runner.get('description').get('runnerName'),
+                    "exchange" : runner.get('exchange')
+                    }
+                    for runner in market.get('runners')
+                    ]
+            } for market in response.get('results')[0].get('markets') ]
+            
+            return {
+                "fancy odds from Betfair API" : processed_Response,
+                "variant" : variant,
+                "sport name" : sport_name
+            }
+        else:
+            return {
+                "response from BetsAPI" : response,
+                "variant" : variant,
+                "sport name" : sport_name
+            }
+
     def getBetfairActiveEvents(self, sport_name='Cricket', variant='ex'):
         sport_id = self.SportsID_Dict_Betfair.get(sport_name)
         response = requests.get(f'https://api.b365api.com/v1/betfair/{variant}/inplay?sport_id={sport_id}&token={self.API_KEY}').json()
-        active_events = [ { 
-            "event_key" : result.get('id'),
-            "league" : result.get('league').get('name'),
-            "home" : result.get('home').get('name'),
-            "away" : result.get('away').get('name'),
-            "time" : result.get('time')
-         } for result in response.get('results') ]
-        return {
-            "active events from Betfair API" : active_events,
-            "variant" : variant,
-            "sport name" : sport_name
-        }
+        if response.get('success') == 1:
+            active_events = [ { 
+                "event_key" : result.get('id'),
+                "league" : result.get('league').get('name'),
+                "home" : result.get('home').get('name'),
+                "away" : result.get('away').get('name'),
+                "time" : result.get('time')
+             } for result in response.get('results') ]
+            return {
+                "active events from Betfair API" : active_events,
+                "variant" : variant,
+                "sport name" : sport_name
+            }
+        else:
+            return {
+                "response from BetsAPI" : response,
+                "variant" : variant,
+                "sport name" : sport_name
+            }
