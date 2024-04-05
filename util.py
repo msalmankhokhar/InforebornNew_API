@@ -246,3 +246,9 @@ class BetsAPI():
                 return response
         # response.update({ "msg" : f"Requested match of {event_key} not found" })
         return None
+    def getFancyOdds(self, event_key, sport_name='Cricket', variant='ex'):
+        response = requests.get(f'https://api.b365api.com/v1/betfair/{variant}/event?token={self.API_KEY}&event_id={event_key}').json()
+        return {
+            "fancy odds" : response,
+            "sport name" : sport_name
+        }

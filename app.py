@@ -128,6 +128,17 @@ def data(sport_name, event_key):
             return ErrorJSON("Invalid event key").response
     else:
         return ErrorJSON(f"Invalid sport name. Valid Sports names are {listToText(valid_sport_params)}. 'all' means all sports").response
+
+@app.route("/fancy/<string:event_key>", methods=["GET"])
+@cache.cached(timeout=60)
+def fancy(event_key):
+    sport_name = request.args.get('sport_name')
+    variant = request.args.get('variant')
+    response = betsAPI.getFancyOdds(event_key, sport_name, variant)
+    if response.get('success') == 1:
+        return makeResponseJSON(response)
+    else:
+        return ErrorJSON(f'Something is wrong with your given params. Make sure the event key is valid and optional params (sport_name and variant) are also valid. Valid variants are sb (sportsbook) and ex(exchange). Valid sport_names are {listToText(valid_sport_params)}. Pass them in URL as /fancy/<event key here>?sport_name=Cricket&variant=sb')
     
 @app.route("/match/<string:sport_name>/<string:event_key>", methods=["GET"])
 def match(sport_name, event_key):
