@@ -74,7 +74,7 @@ def getReadme():
     return readmeText
 
 @app.route("/events/<string:sport_name>", methods=["GET"])
-@cache.cached()
+# @cache.cached()
 def events(sport_name):
     if sport_name in valid_sport_params:
         if sport_name == "all":
@@ -113,7 +113,7 @@ def betfair_events():
         return makeResponseJSON(betsAPI.getBetfairActiveEvents())
 
 @app.route("/odds/<string:sport_name>/<string:event_key>", methods=["GET"])
-@cache.cached(timeout=60)
+# @cache.cached(timeout=60)
 def data(sport_name, event_key):
     if sport_name in valid_sport_params:
         keysInOddsAPI = oddsAPI.getAllEventsKeys(sport_name).get("all keys")
@@ -249,15 +249,6 @@ def upcomming_events(sport_name):
     else:
         return ErrorJSON(f"Invalid sport name. Valid Sports names are {listToText(valid_sport_params)}. 'all' means all sports").response
 
-# @app.route('/fancy_odds/<string:event_key>')
-# @cache.cached()
-# def fancy_odds(event_key):
-#     keysInBetsAPI = betsAPI.getAllEventsKeys('Cricket').get("all keys")
-#     if event_key in keysInBetsAPI:
-#         pass
-#     else:
-#         return ErrorJSON(f"Unknown / invalid event key").response
-
 @app.route('/tokens', methods=['GET'])
 def tokens():
     return {
@@ -275,7 +266,7 @@ def internal_server_error(e):
     return errorJson.response
 
 # app run settings
-app_port = 5000
+app_port = 80
 debug = True
 
 if __name__ == "__main__":

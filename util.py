@@ -197,6 +197,7 @@ class BetsAPI():
         #         responseText = responseText.replace(abbrv, betsapi_fields.get(abbrv))
         # api_response = json.loads(responseText)
         # api_response.update( { "results" : [ insert_kv(result, 'event name', self.getEventName(event_key), 0) for result in api_response.get('results')[0] ] } )
+        api_response.update({ "teams_description" : self.getEventHome_and_Away(sport_name, event_key) })
         return { 
             "sport name" : sport_name,
             "fields explanation" : betsapi_fields,
@@ -220,6 +221,20 @@ class BetsAPI():
     def getEventName(self, event_key):
         response = requests.get(f'https://api.b365api.com/v1/bet365/event?token={self.API_KEY}&FI={event_key}').json()
         return response.get('results')[0][0].get('CT')
+    
+    def getEventHome_and_Away(self, sport_name, event_key):
+        activeEvents = self.getActiveEvents(sport_name)
+        if activeEvents.get("success") == True:
+            eventList = activeEvents.get("active events")
+            return [ 
+                        {
+                            "home" : event.get("home"),
+                            "away" : event.get("away")
+                        }
+                for event in eventList if event.get("event_key") == event_key
+            ]
+        else:
+            return None
     
     def getScores(self, sport_name, event_key):
         sport_id = self.SportsID_Dict.get(sport_name)
