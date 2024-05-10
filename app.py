@@ -4,12 +4,13 @@ from flask_caching import Cache
 import json
 from urllib.parse import urljoin
 from util import OddsAPI, BetsAPI, makePathforPAW, keysDict, valid_sport_params, valid_sport_names, listToText, sports_from_ODDSAPI, sports_from_BETSAPI, isInternetConnected
+import waitress
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'salmankhokhar'
 cors = CORS(app)
 
-cache = Cache(app=app, config={'CACHE_TYPE': 'SimpleCache', "CACHE_DEFAULT_TIMEOUT": 300})
+cache = Cache(app=app, config={'CACHE_TYPE': 'SimpleCache', "CACHE_DEFAULT_TIMEOUT": 120})
 
 try:
     with open(makePathforPAW('settings.json'), "rt") as file:
@@ -74,7 +75,7 @@ def getReadme():
     return readmeText
 
 @app.route("/events/<string:sport_name>", methods=["GET"])
-# @cache.cached()
+@cache.cached()
 def events(sport_name):
     if sport_name in valid_sport_params:
         if sport_name == "all":
@@ -104,7 +105,7 @@ def events(sport_name):
         return ErrorJSON(f"Invalid sport name. Valid Sports names are {listToText(valid_sport_params)}. 'all' means all sports").response
 
 @app.route("/events/betfair", methods=["GET"])
-@cache.cached(timeout=120)
+@cache.cached()
 def betfair_events():
     variant = request.args.get('variant')
     if variant and variant.strip() != '':
@@ -113,7 +114,7 @@ def betfair_events():
         return makeResponseJSON(betsAPI.getBetfairActiveEvents())
 
 @app.route("/odds/<string:sport_name>/<string:event_key>", methods=["GET"])
-# @cache.cached(timeout=60)
+@cache.cached(20)
 def data(sport_name, event_key):
     if sport_name in valid_sport_params:
         keysInOddsAPI = oddsAPI.getAllEventsKeys(sport_name).get("all keys")
@@ -145,7 +146,7 @@ def data(sport_name, event_key):
         return ErrorJSON(f"Invalid sport name. Valid Sports names are {listToText(valid_sport_params)}. 'all' means all sports").response
 
 @app.route("/fancy/<string:variant>/<string:event_key>", methods=["GET"])
-@cache.cached(timeout=120)
+@cache.cached(timeout=20)
 def fancy(variant, event_key):
     if variant in [ 'ex', 'sb' ]:
         return makeResponseJSON(betsAPI.getFancyOdds(event_key=event_key, variant=variant))
@@ -153,6 +154,7 @@ def fancy(variant, event_key):
         return ErrorJSON('Invalid betfair variant. Choose from sb (sportsbook) or ex (exchange)').response
     
 @app.route("/match/<string:sport_name>/<string:event_key>", methods=["GET"])
+@cache.cached()
 def match(sport_name, event_key):
     if sport_name in valid_sport_params:
         keysInOddsAPI = oddsAPI.getAllEventsKeys(sport_name).get("all keys")
@@ -199,7 +201,7 @@ def match(sport_name, event_key):
         return ErrorJSON(f"Invalid sport name. Valid Sports names are {listToText(valid_sport_params)}. 'all' means all sports").response
     
 @app.route('/scores/<string:sport_name>/<string:event_key>', methods=["GET"])
-@cache.cached(timeout=40)
+@cache.cached(timeout=20)
 def scores(sport_name, event_key):
     if sport_name in valid_sport_params:
         keysInOddsAPI = oddsAPI.getAllEventsKeys(sport_name).get("all keys")
@@ -233,7 +235,7 @@ def scores(sport_name, event_key):
         return ErrorJSON(f"Invalid sport name. Valid Sports names are {listToText(valid_sport_params)}. 'all' means all sports").response
     
 @app.route('/upcomming/<string:sport_name>', methods=["GET"])
-@cache.cached()
+@cache.cached(200)
 def upcomming_events(sport_name):
     if sport_name in valid_sport_params:
         if sport_name == "all":
@@ -270,4 +272,5 @@ app_port = 80
 debug = True
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=app_port, debug=debug)
+    # app.run(host='0.0.0.0', port=app_port, debug=debug)
+    waitress.serve(app=app, host='0.0.0.0', port=80)
