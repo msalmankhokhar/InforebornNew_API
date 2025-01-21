@@ -1,4 +1,5 @@
 # Betting API by Salman
+### Note: (This respository is no longer maintained)
 
 This project provides a RESTful sports betting API, offering information about in-season sports events and their respective odds/rates. The API utilizes Python Flask and external APIs to handle HTTP requests and responses.
 
